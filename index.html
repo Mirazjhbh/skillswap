@@ -1,0 +1,1365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SkillSwap - Peer-to-peer learning platform to trade skills, build freelance careers, and grow together."
+    />
+    <title>SkillSwap - Learn • Share • Grow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Classic & Elegant Ambient Light Synapse Canvas -->
+    <canvas id="synapse-canvas" aria-hidden="true"></canvas>
+    <div class="page-glow glow-one" aria-hidden="true"></div>
+    <div class="page-glow glow-two" aria-hidden="true"></div>
+
+    <!-- ========================================================= -->
+    <!-- 1. PRE-WEBSITE AUTHENTICATION GATEWAY                     -->
+    <!-- (Users cannot access the website without authentication)  -->
+    <!-- ========================================================= -->
+    <div id="auth-gateway" aria-label="SkillSwap Authentication Gateway">
+      <!-- 4-Quadrant Visual Grid: Real Human Photography -->
+      <div class="gateway-grid-bg" aria-hidden="true">
+        <!-- Top-Left: Web Development -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+            alt="Software engineer coding at laptop"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-top-left">
+            <span class="handwritten-text">Share<br />Your Skills</span>
+            <div class="skill-tag-pill pill-webdev">
+              <span aria-hidden="true">&lt;/&gt;</span> Web Development
+            </div>
+          </div>
+        </div>
+
+        <!-- Top-Right: Freelancing -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+            alt="Freelancer working remotely on a laptop"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-top-right">
+            <span class="handwritten-text">Build<br />Your Future</span>
+            <div class="skill-tag-pill pill-freelance">
+              <span aria-hidden="true">💼</span> Freelancing
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom-Left: Graphic Design -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80"
+            alt="Designer sketching and working on laptop"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-bottom-left">
+            <span class="handwritten-text">Learn<br />New Skills</span>
+            <div class="skill-tag-pill pill-design">
+              <span aria-hidden="true">✏️</span> Graphic Design
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom-Right: Skill Sharing & Mentorship -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+            alt="Colleagues learning and collaborating together"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-bottom-right">
+            <span class="handwritten-text">Grow<br />Together</span>
+            <div class="skill-tag-pill pill-sharing">
+              <span aria-hidden="true">👥</span> Skill Sharing
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gateway Top Header Bar -->
+      <header class="gateway-header">
+        <div class="gateway-brand">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 12L19 4L30 12L19 20L8 12Z" fill="url(#brandGradA)" />
+              <path d="M8 20L19 12L30 20L19 28L8 20Z" fill="url(#brandGradB)" />
+              <path d="M8 28L19 20L30 28L19 36L8 28Z" fill="url(#brandGradC)" />
+              <defs>
+                <linearGradient id="brandGradA" x1="8" y1="4" x2="30" y2="20" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#60A5FA" />
+                  <stop offset="1" stop-color="#3B66FF" />
+                </linearGradient>
+                <linearGradient id="brandGradB" x1="8" y1="12" x2="30" y2="28" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B66FF" />
+                  <stop offset="1" stop-color="#254EDB" />
+                </linearGradient>
+                <linearGradient id="brandGradC" x1="8" y1="20" x2="30" y2="36" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#254EDB" />
+                  <stop offset="1" stop-color="#10B981" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-title-group">
+            <span class="brand-main-title">SkillSwap</span>
+            <span class="brand-tagline">Learn • Share • Grow.</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Real-Time Weekly Calendar Widget (Updates day-by-day automatically) -->
+        <div class="gateway-header-right">
+          <div class="gateway-calendar-widget" aria-label="Live weekly calendar">
+            <div class="cal-widget-head">
+              <button class="cal-nav-btn" id="gw-cal-prev" type="button" aria-label="Previous week">‹</button>
+              <span class="cal-widget-title" id="gw-cal-title">September 7, 2026</span>
+              <button class="cal-nav-btn" id="gw-cal-next" type="button" aria-label="Next week">›</button>
+            </div>
+            <div class="cal-week-labels">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <div class="cal-week-days" id="gw-cal-days">
+              <!-- Dynamically populated day-by-day by scripts.js based on actual current date -->
+            </div>
+          </div>
+
+          <!-- Quick Preview Action -->
+          <div class="gw-header-ctas">
+            <button type="button" class="gw-header-demo-btn" id="gw-top-demo-btn" title="Explore live site and animations">
+              ⚡ Live Preview
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Center Floating Authentication Card -->
+      <div class="gateway-center-wrap">
+        <div class="gateway-card">
+          <!-- Animated Mascot Companion: DEX -->
+          <div class="mascot-companion" aria-hidden="true" title="Dex - Your SkillSwap Companion">
+            <svg class="mascot-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="36" ry="34" fill="url(#mascotBodyGrad)" />
+              <!-- Face Screen -->
+              <ellipse cx="50" cy="48" rx="28" ry="24" fill="#0F172A" />
+              <!-- Eyes with blink animation -->
+              <ellipse class="mascot-eye" cx="40" cy="46" rx="4.5" ry="6" fill="#60A5FA" />
+              <ellipse class="mascot-eye" cx="60" cy="46" rx="4.5" ry="6" fill="#60A5FA" />
+              <circle cx="41.5" cy="44" r="1.8" fill="#FFFFFF" />
+              <circle cx="61.5" cy="44" r="1.8" fill="#FFFFFF" />
+              <!-- Cheerful Smile -->
+              <path d="M43 54C46 57 54 57 57 54" stroke="#34D399" stroke-width="2.8" stroke-linecap="round" />
+              <!-- Antenna & Light -->
+              <path d="M50 16V10" stroke="#3B66FF" stroke-width="3" stroke-linecap="round" />
+              <circle cx="50" cy="8" r="4.5" fill="#10B981" />
+              <!-- Waving Arm -->
+              <path class="mascot-arm-wave" d="M16 48C8 38 6 26 12 22C18 18 24 30 22 42" fill="url(#mascotBodyGrad)" />
+              <defs>
+                <linearGradient id="mascotBodyGrad" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B66FF" />
+                  <stop offset="1" stop-color="#10B981" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="card-header-brand">
+            <div class="card-logo">
+              <svg viewBox="0 0 38 38" fill="none">
+                <path d="M8 12L19 4L30 12L19 20L8 12Z" fill="#3B66FF" />
+                <path d="M8 20L19 12L30 20L19 28L8 20Z" fill="#254EDB" />
+                <path d="M8 28L19 20L30 28L19 36L8 28Z" fill="#10B981" />
+              </svg>
+            </div>
+            <span class="card-brand-text">SkillSwap</span>
+            <span class="card-tagline-text">Learn • Share • Grow.</span>
+          </div>
+
+          <!-- Prominent Front-and-Center Sign Up / Log In Tab Switcher -->
+          <div class="gateway-tab-switcher" role="tablist" aria-label="Sign In or Sign Up">
+            <button type="button" class="gw-tab-btn active" id="tab-login" role="tab" aria-selected="true">
+              <span class="tab-icon">🔑</span> Log In
+            </button>
+            <button type="button" class="gw-tab-btn" id="tab-signup" role="tab" aria-selected="false">
+              <span class="tab-icon">✨</span> Sign Up Free
+            </button>
+          </div>
+
+          <h2 class="card-title" id="gateway-card-title">Welcome Back!</h2>
+          <p class="card-subtitle" id="gateway-card-subtitle">Login to your account or create a new one to get started.</p>
+
+          <!-- Prominent Google Sign-In Option -->
+          <button class="gateway-google-btn" id="gw-google-btn" type="button" aria-label="Sign in with Google">
+            <svg class="google-svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z" />
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z" />
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z" />
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+            </svg>
+            <span id="gw-google-label">Sign in with Google</span>
+          </button>
+
+          <div class="gateway-divider">
+            <span>or continue with email</span>
+          </div>
+
+          <form id="gateway-auth-form" class="gateway-form">
+            <!-- Full Name (Only shown in sign up mode) -->
+            <div class="gateway-input-wrap" id="field-signup-name" hidden>
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+              </svg>
+              <input class="gateway-input" id="gw-name-input" type="text" placeholder="Full name (e.g. Alex Chen)" autocomplete="name" />
+            </div>
+
+            <!-- Email Address -->
+            <div class="gateway-input-wrap">
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <input class="gateway-input" id="gw-email-input" type="email" placeholder="Email address" required autocomplete="email" />
+            </div>
+
+            <!-- Password -->
+            <div class="gateway-input-wrap">
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+              </svg>
+              <input class="gateway-input" id="gw-pass-input" type="password" placeholder="Password" required autocomplete="current-password" />
+              <button class="gateway-pass-toggle" id="gw-pass-toggle" type="button" aria-label="Toggle password visibility">👁</button>
+            </div>
+
+            <!-- Dynamic Password Strength Indicator (Active during Sign Up) -->
+            <div class="pass-strength-meter" id="pass-strength-meter" hidden>
+              <div class="strength-bar-track">
+                <span class="strength-bar-fill" id="strength-bar-fill"></span>
+              </div>
+              <div class="strength-caption">
+                <span class="strength-label">Password strength:</span>
+                <strong class="strength-val" id="strength-val">Weak</strong>
+              </div>
+            </div>
+
+            <!-- Skills To Teach/Learn (Only shown in sign up mode) -->
+            <div class="gateway-input-wrap" id="field-signup-skill" hidden>
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
+              </svg>
+              <input class="gateway-input" id="gw-skill-input" type="text" placeholder="Skill you want to trade (e.g. React, UX)" />
+            </div>
+
+            <div class="gateway-options-row">
+              <label class="gateway-checkbox-label">
+                <input type="checkbox" id="gw-remember" checked />
+                Remember me
+              </label>
+              <a href="#" class="gateway-forgot-link" id="gw-forgot-link">Forgot password?</a>
+            </div>
+
+            <button class="gateway-submit-btn" id="gw-submit-btn" type="submit">
+              Login
+            </button>
+          </form>
+
+          <div class="gateway-card-footer">
+            <span id="gw-footer-prompt">Don't have an account?</span>
+            <button type="button" class="gateway-toggle-link" id="gw-mode-toggle">Sign up</button>
+            <div class="gateway-demo-action">
+              <button type="button" class="gateway-demo-link" id="gw-demo-btn">⚡ Instant Guest Access (Explore Live Animations)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gateway Bottom Metrics Bar -->
+      <footer class="gateway-metrics-bar">
+        <div class="metrics-items-group">
+          <div class="metric-col">
+            <div class="metric-icon-circle">👥</div>
+            <div class="metric-info">
+              <span class="metric-num">10K+</span>
+              <span class="metric-label">Active Learners</span>
+            </div>
+          </div>
+          <div class="metric-col">
+            <div class="metric-icon-circle">⭐</div>
+            <div class="metric-info">
+              <span class="metric-num">1K+</span>
+              <span class="metric-label">Skills Available</span>
+            </div>
+          </div>
+          <div class="metric-col">
+            <div class="metric-icon-circle">🌐</div>
+            <div class="metric-info">
+              <span class="metric-num">500+</span>
+              <span class="metric-label">Communities</span>
+            </div>
+          </div>
+          <div class="metric-highlight">
+            <div class="metric-icon-circle">❤️</div>
+            <div>
+              <strong>Learn Today</strong>
+              <small>Build Tomorrow</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="metrics-carousel-controls">
+          <div class="carousel-dots">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+          </div>
+          <button class="carousel-arrow-btn" id="gw-carousel-prev" type="button" aria-label="Previous community highlight">‹</button>
+          <button class="carousel-arrow-btn" id="gw-carousel-next" type="button" aria-label="Next community highlight">›</button>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 2. MAIN SKILLSWAP APPLICATION (Unlocked upon login)       -->
+    <!-- ========================================================= -->
+    <div id="main-app" hidden>
+      <!-- Site Header -->
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="brand" href="#home" aria-label="SkillSwap home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 38 38" fill="none">
+                <path d="M8 12L19 4L30 12L19 20L8 12Z" fill="#3B66FF" />
+                <path d="M8 20L19 12L30 20L19 28L8 20Z" fill="#254EDB" />
+                <path d="M8 28L19 20L30 28L19 36L8 28Z" fill="#10B981" />
+              </svg>
+            </span>
+            <span>Skill<span>Swap</span></span>
+          </a>
+
+          <nav class="main-nav" aria-label="Main navigation">
+            <a class="active" href="#home">Home</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#discover">Discover</a>
+            <a href="#sessions">Sessions</a>
+            <a href="#community">Community</a>
+          </nav>
+
+          <div class="header-actions">
+            <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch dark/light mode">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M18.36 5.64l-1.42 1.42M7.06 16.94l-1.42 1.42M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+              </svg>
+            </button>
+
+            <!-- Top Navigation Login & Sign Up Options in Main Header -->
+            <div class="site-header-auth-nav" id="site-header-auth-nav">
+              <button type="button" class="site-nav-auth-btn site-nav-login" id="site-nav-login-btn">
+                Log In
+              </button>
+              <button type="button" class="site-nav-auth-btn site-nav-signup" id="site-nav-signup-btn">
+                Sign Up
+              </button>
+            </div>
+
+            <!-- Logged-in User Profile with Logout Capability -->
+            <div class="user-profile-badge">
+              <button class="user-avatar-btn" id="user-menu-btn" aria-expanded="false" type="button">
+                <span class="avatar-ring">
+                  <img src="" alt="miraz" width="32" height="32" />
+                </span>
+                <span class="user-name-short" id="header-user-name">Alex</span>
+                <svg class="chevron-icon" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div class="user-dropdown-menu" id="user-dropdown-menu">
+                <div class="user-menu-header">
+                  <strong id="dropdown-user-name">Alex Chen</strong>
+                  <small id="dropdown-user-email">alex.chen@skillswap.io</small>
+                  <span class="user-badge-level">Pro Swapper • 3 Sessions</span>
+                </div>
+                <!-- Learning Goals snippet in profile dropdown -->
+                <div class="user-menu-goals">
+                  <div class="user-menu-goal-item">
+                    <span class="user-goal-tag">🎯 Wants to Learn:</span>
+                    <strong id="menu-user-learning">Next.js & AI Agents</strong>
+                  </div>
+                  <div class="user-menu-goal-item">
+                    <span class="user-goal-tag">🚀 Target Project:</span>
+                    <span id="menu-user-project">AI Assistant Dashboard</span>
+                  </div>
+                </div>
+                <hr />
+                <button type="button" class="menu-item" id="menu-edit-goals-btn">✏️ Edit What I Want to Learn</button>
+                <a href="#discover" class="menu-item">🔍 Discover Peers & Matches</a>
+                <a href="#sessions" class="menu-item">📅 My Sessions <span class="badge-mini">1 active</span></a>
+                <button type="button" class="menu-item open-request" data-person="a new skill partner">✨ New Swap Proposal</button>
+                <hr />
+                <button type="button" class="menu-item logout-btn" id="app-logout-btn">🔒 Log out (Lock Site)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero Section -->
+        <section class="hero section-shell" id="home">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span></span> Learn together, grow together</p>
+            <h1 class="hero-title-stagger" id="hero-stagger-title">
+              <span class="stagger-word" style="--w: 1">Your</span>
+              <span class="stagger-word" style="--w: 2">next</span>
+              <span class="stagger-word" style="--w: 3">teacher</span>
+              <span class="stagger-word" style="--w: 4">is</span>
+              <span class="stagger-word" style="--w: 5">already</span>
+              <span class="stagger-word" style="--w: 6">in</span>
+              <span class="stagger-word" style="--w: 7">your</span>
+              <span class="stagger-word word-highlight" style="--w: 8"><em>community.</em></span>
+            </h1>
+            <p class="hero-text">
+              Trade what you know for what you want to learn. SkillSwap makes it seamless to find peers,
+              agree on reciprocal knowledge exchanges, and accelerate your freelance career together.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary hero-cta-btn" href="#discover">Find a skill partner <span aria-hidden="true">→</span></a>
+              <button class="text-button" type="button" data-scroll-target="#how-it-works">
+                <span class="play-icon" aria-hidden="true">▶</span> See how it works
+              </button>
+            </div>
+            <div class="social-proof">
+              <div class="avatar-stack" aria-label="Real community members">
+                <span class="avatar" title="Sadia Ahmed Mim">
+                  <img src="person 7.jpeg" alt="Sadia Ahmed Mim" />
+                </span>
+                <span class="avatar" title="Khaled Saifullah">
+                  <img src="person 3.jpeg" alt="Khaled Saifullah" />
+                </span>
+                <span class="avatar" title="Shoptorshi Chumky">
+                  <img src="person 6.jpeg" alt="Shoptorshi Chumky" />
+                </span>
+                <span class="avatar" title="Miraz Montasir">
+                  <img src="person 5.jpeg" alt="Miraz Montasir" />
+                </span>
+              </div>
+              <p><strong>1000+ curious professionals</strong><br />actively exchanging skills this week</p>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal reveal-delay" id="hero-interactive-stage">
+            <!-- Animated Connection Lines with Traveling Light Photons -->
+            <svg class="hero-network-svg" id="hero-network-svg" viewBox="0 0 560 500" fill="none" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <filter id="neonPulseGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <linearGradient id="netGradA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#3B66FF" />
+                  <stop offset="50%" stop-color="#8B5CF6" />
+                  <stop offset="100%" stop-color="#10B981" />
+                </linearGradient>
+              </defs>
+
+              <!-- Base Ambient Filament Tracks -->
+              <path class="net-base-path" d="M 120 110 C 170 110, 190 190, 240 220" />
+              <path class="net-base-path" d="M 120 380 C 170 380, 190 280, 240 240" />
+              <path class="net-base-path" d="M 280 220 C 330 220, 340 190, 390 190" />
+              <path class="net-base-path" d="M 280 240 C 330 240, 340 310, 390 310" />
+              <path class="net-base-path net-intercard" d="M 100 160 C 55 240, 55 270, 100 340" />
+
+              <!-- Traveling Light Streams (Animated Dashoffset) -->
+              <path class="net-stream-path stream-1" d="M 120 110 C 170 110, 190 190, 240 220" />
+              <path class="net-stream-path stream-2" d="M 120 380 C 170 380, 190 280, 240 240" />
+              <path class="net-stream-path stream-3" d="M 280 220 C 330 220, 340 190, 390 190" />
+              <path class="net-stream-path stream-4" d="M 280 240 C 330 240, 340 310, 390 310" />
+
+              <!-- Animated Light Traveling Photons (Simulated real-time skill packet transfer) -->
+              <circle class="photon-packet" r="4.5" fill="#60A5FA" filter="url(#neonPulseGlow)">
+                <animateMotion dur="2.6s" repeatCount="indefinite" path="M 120 110 C 170 110, 190 190, 240 220" />
+              </circle>
+              <circle class="photon-packet" r="4.5" fill="#A855F7" filter="url(#neonPulseGlow)">
+                <animateMotion dur="3.0s" repeatCount="indefinite" path="M 120 380 C 170 380, 190 280, 240 240" />
+              </circle>
+              <circle class="photon-packet photon-emerald" r="4" fill="#34D399" filter="url(#neonPulseGlow)">
+                <animateMotion dur="2.4s" repeatCount="indefinite" path="M 280 220 C 330 220, 340 190, 390 190" />
+              </circle>
+              <circle class="photon-packet" r="4" fill="#60A5FA" filter="url(#neonPulseGlow)">
+                <animateMotion dur="2.8s" repeatCount="indefinite" path="M 280 240 C 330 240, 340 310, 390 310" />
+              </circle>
+              <circle class="photon-packet photon-purple" r="3.5" fill="#C084FC" filter="url(#neonPulseGlow)">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M 100 160 C 55 240, 55 270, 100 340" />
+              </circle>
+            </svg>
+
+            <!-- Mascot Assistant Callout Tip -->
+            <div class="hero-mascot-tip">
+              <span class="mascot-mini-icon">🤖</span>
+              <p>Dex: "Ready to swap your first skill today?"</p>
+            </div>
+
+            <!-- Profile Card 1: UI/UX Designer (Top-Left Peer) -->
+            <div class="hero-peer-card peer-card-top-left tilt-card" id="user-card-1">
+              <div class="peer-avatar">
+                <img src="mim.jpg" alt="Sadia Ahmed Mim - UI/UX Designer" />
+                <span class="peer-pulse-status" title="Active now"></span>
+              </div>
+              <div class="peer-details">
+                <strong class="peer-name">Sadia Ahmed Mim <span class="verified-dot">✓</span></strong>
+                <span class="peer-role">Lead UI/UX Designer</span>
+                <div class="peer-tags">
+                  <span class="tag-teach">Teach: Figma & Systems</span>
+                  <span class="tag-learn">Learn: 3D Web & React</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center SkillSwap Icon: Slow Rotation with Subtle Neon Glow -->
+            <div class="hero-center-hub" id="hero-center-hub" title="SkillSwap Core Hub">
+              <div class="hub-neon-aura" aria-hidden="true"></div>
+              <div class="hub-rotating-orbit" aria-hidden="true">
+                <span class="orbit-sparkle sparkle-1"></span>
+                <span class="orbit-sparkle sparkle-2"></span>
+              </div>
+              <div class="hub-center-icon-box">
+                <svg class="hub-emblem-svg" viewBox="0 0 38 38" fill="none">
+                  <path d="M8 12L19 4L30 12L19 20L8 12Z" fill="#3B66FF" />
+                  <path d="M8 20L19 12L30 20L19 28L8 20Z" fill="#8B5CF6" />
+                  <path d="M8 28L19 20L30 28L19 36L8 28Z" fill="#10B981" />
+                </svg>
+              </div>
+              <span class="hub-caption-badge">SkillSwap Core ⇄</span>
+            </div>
+
+            <!-- Profile Card 2: Frontend Engineer (Bottom-Left Peer) -->
+            <div class="hero-peer-card peer-card-bottom-left tilt-card" id="user-card-2">
+              <div class="peer-avatar">
+                <img src="saif.jpg" alt="Khaled Saifullah - Full-Stack Engineer" />
+                <span class="peer-pulse-status status-blue" title="Active now"></span>
+              </div>
+              <div class="peer-details">
+                <strong class="peer-name">Khaled Saifullah <span class="verified-dot">✓</span></strong>
+                <span class="peer-role">Full-Stack Engineer</span>
+                <div class="peer-tags">
+                  <span class="tag-teach">Teach: React, Node & TS</span>
+                  <span class="tag-learn">Learn: Cloud DevOps</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured Match Window / Match Panel (Real Photography) -->
+            <div class="match-window tilt-card" id="hero-match-panel">
+              <div class="window-topbar">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span>SkillSwap live match</span>
+                <button aria-label="More options" type="button">•••</button>
+              </div>
+              <div class="match-content">
+                <div class="match-heading">
+                  <div>
+                    <p>Suggested peer for you</p>
+                    <strong>People you can learn with</strong>
+                  </div>
+                  <span class="match-count">12 matches</span>
+                </div>
+                <article class="featured-match">
+                  <div class="profile-portrait">
+                    <img
+                      src="miraz.jpg"
+                      alt="Miraz Montasir"
+                      loading="lazy"
+                    />
+                    <i>●</i>
+                  </div>
+                  <div class="match-person">
+                    <p>Miraz Montasir <span class="verified">✓</span></p>
+                    <small>Dhaka, Bangladesh • Brand Architect</small>
+                  </div>
+                  <button class="more-button" type="button" aria-label="Options">•••</button>
+                  <div class="skill-trade">
+                    <div>
+                      <span class="trade-label">Can teach</span>
+                      <strong>Brand strategy</strong>
+                    </div>
+                    <span class="swap-arrows" aria-hidden="true">⇄</span>
+                    <div>
+                      <span class="trade-label">Wants to learn</span>
+                      <strong>Motion design</strong>
+                    </div>
+                  </div>
+                  <div class="match-footer">
+                    <span class="rating">★ 4.9 <small>(38 reviews)</small></span>
+                    <button class="button button-mini open-request connect-pulse-btn" type="button" data-person="Miraz Montasir">
+                      Connect <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </article>
+
+                <div class="match-row">
+                  <span class="mini-portrait">
+                    <img src="saif.jpg" alt="Khaled" />
+                  </span>
+                  <div>
+                    <strong>Khaled Saifullah</strong>
+                    <small>Photography · UX Writing</small>
+                  </div>
+                  <b>91% fit</b>
+                </div>
+                <div class="match-row">
+                  <span class="mini-portrait">
+                    <img src="shoptoshi.jpg" alt="Shoptorshi" />
+                  </span>
+                  <div>
+                    <strong>Shoptorshi Chumky</strong>
+                    <small>Public Speaking · Python</small>
+                  </div>
+                  <b>88% fit</b>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-note note-top">
+              <span>✦</span>
+              <p><strong>One good swap</strong><br />changes your career path.</p>
+            </div>
+            <div class="floating-note note-bottom">
+              <span class="mini-portrait">
+                <img src="mim.jpg" alt="Sadia" />
+              </span>
+              <p><strong>New request</strong><br />Photography for UX writing</p>
+              <i>✓</i>
+            </div>
+          </div>
+        </section>
+
+        <!-- Marquee Banner -->
+        <section class="marquee" aria-label="Popular skills">
+          <div class="marquee-track">
+            <span>✦ Web Development</span><span>✦ Freelancing</span><span>✦ Graphic Design</span><span>✦ UI/UX Design</span><span>✦ Python</span><span>✦ Public Speaking</span><span>✦ Illustration</span>
+            <span>✦ Web Development</span><span>✦ Freelancing</span><span>✦ Graphic Design</span><span>✦ UI/UX Design</span><span>✦ Python</span><span>✦ Public Speaking</span><span>✦ Illustration</span>
+          </div>
+        </section>
+
+        <!-- Value Section / How it Works with 'Find Your People' -->
+        <section class="value-section section-shell" id="how-it-works">
+          <div class="section-intro reveal">
+            <p class="eyebrow"><span></span> A better way to learn</p>
+            <h2>Knowledge moves farther when we <em>share it.</em></h2>
+          </div>
+          <div class="value-grid">
+            <!-- Card 01: Find Your People with Interactive Search -->
+            <article class="value-card value-card-featured tilt-card reveal" id="find-people-card">
+              <span class="number">01</span>
+              <div class="value-icon icon-search"><span></span></div>
+              <h3>Find your people</h3>
+              <p>Discover peers who have the exact skills you want — and want what you can offer.</p>
+              
+              <div class="quick-skill-finder" aria-label="Quick skill selector">
+                <label for="quick-skill-select" class="quick-label">Select a skill to explore:</label>
+                <div class="quick-select-wrap">
+                  <select id="quick-skill-select">
+                    <option value="" disabled selected>Select a skill...</option>
+                    <option value="Brand strategy">Brand strategy</option>
+                    <option value="Motion design">Motion design</option>
+                    <option value="Photography">Photography</option>
+                    <option value="UX writing">UX writing</option>
+                    <option value="Python">Python</option>
+                    <option value="Public speaking">Public speaking</option>
+                    <option value="Illustration">Illustration</option>
+                    <option value="Web Development">Web Development</option>
+                  </select>
+                  <button class="button button-mini quick-search-btn" id="quick-search-btn" type="button">
+                    Search <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+                <div class="quick-pills">
+                  <span class="quick-pill-tag">Popular:</span>
+                  <button type="button" class="quick-pill" data-skill="Python">Python</button>
+                  <button type="button" class="quick-pill" data-skill="Motion design">Motion design</button>
+                  <button type="button" class="quick-pill" data-skill="UX writing">UX writing</button>
+                  <button type="button" class="quick-pill" data-skill="Photography">Photography</button>
+                </div>
+              </div>
+
+              <a href="#discover" class="explore-link">Explore all skills <span>→</span></a>
+            </article>
+
+            <!-- Card 02: Fair Trade -->
+            <article class="value-card tilt-card reveal reveal-delay">
+              <span class="number">02</span>
+              <div class="value-icon icon-swap"><span>↗</span><span>↙</span></div>
+              <h3>Make it a fair trade</h3>
+              <p>Send a direct exchange proposal detailing what you teach, learn, and your preferred schedule.</p>
+              <a href="#process" class="explore-link">See the flow <span>→</span></a>
+            </article>
+
+            <!-- Card 03: Learn in real life -->
+            <article class="value-card tilt-card reveal reveal-delay-two">
+              <span class="number">03</span>
+              <div class="value-icon icon-calendar"><span></span></div>
+              <h3>Learn in real life</h3>
+              <p>Schedule a focused session, share practice files, and leave with a new skill and trusted colleague.</p>
+              <a href="#sessions" class="explore-link">View schedule <span>→</span></a>
+            </article>
+          </div>
+        </section>
+
+        <!-- Discover Section: Find Someone to Learn With -->
+        <section class="discover-section section-shell" id="discover">
+          <div class="discover-header reveal">
+            <div>
+              <p class="eyebrow"><span></span> Meet your match</p>
+              <h2>Find someone to learn <em>with.</em></h2>
+            </div>
+            <p>Choose a category, search for specific skills, and connect directly with vetted community partners.</p>
+          </div>
+
+          <div class="finder reveal">
+            <label class="search-field" for="skill-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4.35-4.35"></path></svg>
+              <input id="skill-search" type="search" placeholder="What do you want to learn? (e.g. Python, Motion design, UX writing...)" autocomplete="off" />
+            </label>
+            <button class="search-clear-btn" id="search-clear" type="button" title="Clear search" hidden>✕</button>
+            <button class="button button-primary" id="search-button" type="button">Search partners <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div class="filter-row reveal" aria-label="Category filters">
+            <button class="filter active" data-filter="all" type="button">All skills</button>
+            <button class="filter" data-filter="design" type="button">Design</button>
+            <button class="filter" data-filter="tech" type="button">Technology</button>
+            <button class="filter" data-filter="business" type="button">Business</button>
+            <button class="filter" data-filter="creative" type="button">Creative</button>
+            <button class="filter" data-filter="language" type="button">Languages</button>
+          </div>
+
+          <div class="search-status-bar reveal">
+            <p id="search-status" class="search-status" aria-live="polite">Showing 4 featured peers</p>
+            <div id="active-chip-container" hidden>
+              <span class="active-search-chip">
+                <span id="active-chip-text">Filtered</span>
+                <button type="button" id="active-chip-clear" aria-label="Reset filter">✕</button>
+              </span>
+            </div>
+          </div>
+
+          <!-- My Active SkillSwap Exchange Profile (Visible to other peers) -->
+          <div class="my-exchange-profile-card tilt-card reveal" id="my-public-exchange-card">
+            <div class="my-profile-badge-head">
+              <div class="my-profile-user-info">
+
+                <div class="my-profile-avatar-wrap">
+                  <span class="online-indicator"></span>
+                </div>
+                <div>
+                  <div class="my-name-row">
+                    <h3 id="my-profile-name">miraz</h3>
+                    <span class="user-badge-tag">My Profile (Public to Peers)</span>
+                  </div>
+                  <p class="my-profile-tagline" id="my-profile-role">Pro Swapper • Open for Mutual Exchanges</p>
+                </div>
+              </div>
+              <button type="button" class="button button-mini edit-goals-action-btn" id="trigger-goals-modal-btn">
+                ✏️ Edit What I Want to Learn
+              </button>
+            </div>
+
+            <div class="my-goals-grid">
+              <div class="my-goal-item goal-learning">
+                <span class="goal-icon">🎯</span>
+                <div>
+                  <small>What I Want to Learn</small>
+                  <strong id="display-my-learning">Full-Stack Next.js & AI Agents</strong>
+                </div>
+              </div>
+              <div class="my-goal-item goal-project">
+                <span class="goal-icon">🚀</span>
+                <div>
+                  <small>Interested Project / Skill</small>
+                  <strong id="display-my-project">Building an AI Agent Developer Platform</strong>
+                </div>
+              </div>
+              <div class="my-goal-item goal-teach">
+                <span class="goal-icon">💡</span>
+                <div>
+                  <small>Skills I Offer in Exchange</small>
+                  <strong id="display-my-teach">UI/UX Design, Figma & Design Systems</strong>
+                </div>
+              </div>
+              <div class="my-goal-item goal-status">
+                <span class="goal-icon">⚡</span>
+                <div>
+                  <small>Exchange Cadence</small>
+                  <strong id="display-my-cadence">Weekly Google Meet Sessions</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Peer Cards with Real Photography -->
+          <div class="people-grid" id="people-grid">
+            <!-- Peer 1: Miraz -->
+            <article class="person-card tilt-card reveal" data-category="design creative" data-search="miraz montasir brand strategy motion design html react figma">
+              <div class="person-top">
+                <div class="profile-portrait">
+                  <img src="miraz.jpg" alt="Miraz Montasir" loading="lazy" />
+                  <i>●</i>
+                </div>
+                <button class="heart-button" type="button" aria-label="Save to favorites">♡</button>
+              </div>
+              <div class="person-name">
+                <h3>Miraz Montasir <span class="verified">✓</span></h3>
+                <span>4.9 ★</span>
+              </div>
+              <p>Brand strategist helping curious creatives build memorable digital identities and web applications.</p>
+              <div class="skill-pills">
+                <span data-skill="Brand strategy">Brand strategy</span>
+                <span data-skill="HTML">HTML</span>
+                <span data-skill="React">React</span>
+                <span data-skill="Figma">Figma</span>
+              </div>
+              <div class="peer-exchange-needs">
+                <div class="wants">
+                  <span>🎯 Wants to learn:</span>
+                  <strong>Motion design</strong>
+                </div>
+                <div class="project-interest">
+                  <span>🚀 Project interest:</span>
+                  <strong>Interactive 3D Brand Guidelines</strong>
+                </div>
+              </div>
+              <button class="button button-card open-request" type="button" data-person="Miraz Montasir">
+                Send exchange request <span aria-hidden="true">→</span>
+              </button>
+            </article>
+
+            <!-- Peer 2: Khaled -->
+            <article class="person-card tilt-card reveal reveal-delay" data-category="tech business" data-search="khaled saifullah photography ux writing storytelling product">
+              <div class="person-top">
+                <div class="profile-portrait">
+                  <img src="saif.jpg" alt="Khaled Saifullah" loading="lazy" />
+                  <i>●</i>
+                </div>
+                <button class="heart-button" type="button" aria-label="Save to favorites">♡</button>
+              </div>
+              <div class="person-name">
+                <h3>Khaled Saifullah <span class="verified">✓</span></h3>
+                <span>4.8 ★</span>
+              </div>
+              <p>Product photographer and UX storyteller passionate about human-centered language in software.</p>
+              <div class="skill-pills">
+                <span data-skill="Photography">Photography</span>
+                <span data-skill="Storytelling">Storytelling</span>
+                <span data-skill="UX writing">UX writing</span>
+              </div>
+              <div class="peer-exchange-needs">
+                <div class="wants">
+                  <span>🎯 Wants to learn:</span>
+                  <strong>Full-Stack Development</strong>
+                </div>
+                <div class="project-interest">
+                  <span>🚀 Project interest:</span>
+                  <strong>Open-Source Photography CMS</strong>
+                </div>
+              </div>
+              <button class="button button-card open-request" type="button" data-person="Khaled Saifullah">
+                Send exchange request <span aria-hidden="true">→</span>
+              </button>
+            </article>
+
+            <!-- Peer 3: Shoptorshi -->
+            <article class="person-card tilt-card reveal reveal-delay-two" data-category="tech language" data-search="shoptorshi kormoker chumky public speaking python english presentation">
+              <div class="person-top">
+                <div class="profile-portrait">
+                  <img src="shoptoshi.jpg" alt="Shoptorshi Chumky" loading="lazy" />
+                  <i>●</i>
+                </div>
+                <button class="heart-button" type="button" aria-label="Save to favorites">♡</button>
+              </div>
+              <div class="person-name">
+                <h3>Shoptorshi Chumky <span class="verified">✓</span></h3>
+                <span>5.0 ★</span>
+              </div>
+              <p>Software engineer & tech keynote speaker coaching developers on how to communicate complex code clearly.</p>
+              <div class="skill-pills">
+                <span data-skill="Public speaking">Public speaking</span>
+                <span data-skill="Python">Python</span>
+                <span data-skill="Presentation">Presentation</span>
+              </div>
+              <div class="peer-exchange-needs">
+                <div class="wants">
+                  <span>🎯 Wants to learn:</span>
+                  <strong>English fluency</strong>
+                </div>
+                <div class="project-interest">
+                  <span>🚀 Project interest:</span>
+                  <strong>AI Speech Clarity Evaluator</strong>
+                </div>
+              </div>
+              <button class="button button-card open-request" type="button" data-person="Shoptorshi Chumky">
+                Send exchange request <span aria-hidden="true">→</span>
+              </button>
+            </article>
+
+            <!-- Peer 4: Sadia -->
+            <article class="person-card tilt-card reveal reveal-delay-three" data-category="creative design" data-search="sadia ahmed mim illustration guitar music adobe after effects">
+              <div class="person-top">
+                <div class="profile-portrait">
+                  <img src="mim.jpg" alt="Sadia Ahmed Mim" loading="lazy" />
+                  <i>●</i>
+                </div>
+                <button class="heart-button" type="button" aria-label="Save to favorites">♡</button>
+              </div>
+              <div class="person-name">
+                <h3>Sadia Ahmed Mim</h3>
+                <span>4.9 ★</span>
+              </div>
+              <p>Illustrator, visual artist, and patient guitar tutor helping creative freelancers unlock their style.</p>
+              <div class="skill-pills">
+                <span data-skill="Illustration">Illustration</span>
+                <span data-skill="Guitar">Guitar</span>
+                <span data-skill="Motion design">Motion design</span>
+              </div>
+              <div class="peer-exchange-needs">
+                <div class="wants">
+                  <span>🎯 Wants to learn:</span>
+                  <strong>Adobe After Effects</strong>
+                </div>
+                <div class="project-interest">
+                  <span>🚀 Project interest:</span>
+                  <strong>Children's Interactive Storybook</strong>
+                </div>
+              </div>
+              <button class="button button-card open-request" type="button" data-person="Sadia Ahmed Mim">
+                Send exchange request <span aria-hidden="true">→</span>
+              </button>
+            </article>
+          </div>
+
+          <p class="empty-state" id="empty-state" hidden>No matching peers found. Try searching another skill or click "All skills".</p>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section" id="process">
+          <div class="section-shell process-layout">
+            <div class="process-copy reveal">
+              <p class="eyebrow"><span></span> Simple by design</p>
+              <h2>From “I’d love to learn that” to a <em>real session.</em></h2>
+              <p>SkillSwap keeps the path direct, respectful, and focused on making genuine peer learning happen.</p>
+              <button class="button button-light open-request" type="button" data-person="a new skill partner">
+                Start your first exchange <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <ol class="process-list reveal reveal-delay">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Build your learning profile</h3>
+                  <p>State what you can comfortably teach, what you want to master, and your preferred learning cadence.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Discover a reciprocal match</h3>
+                  <p>Browse the verified community or let SkillSwap match you with peers in your desired subject.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Agree on an exchange</h3>
+                  <p>Send a structured proposal, align on learning targets, and confirm reciprocal video sessions.</p>
+                </div>
+              </li>
+              <li>
+                <span>04</span>
+                <div>
+                  <h3>Meet, learn, and grow</h3>
+                  <p>Connect in Google Meet, share notes in chat, and elevate your skills side-by-side.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Sessions & Real-Time Dynamic Monthly Calendar Section -->
+        <section class="session-section section-shell" id="sessions">
+          <div class="session-intro reveal">
+            <div>
+              <p class="eyebrow"><span></span> Learn on your schedule</p>
+              <h2>Great exchanges start with a <em>great plan.</em></h2>
+            </div>
+            <p>Schedule your reciprocal sessions and keep your dialogue organized in one unified hub.</p>
+          </div>
+
+          <div class="session-demo reveal">
+            <!-- Real-Time Monthly Calendar Card (Updates day-by-day based on real date) -->
+            <div class="calendar-card tilt-card">
+              <div class="calendar-head">
+                <div>
+                  <p>Calendar</p>
+                  <h3 id="app-cal-title">September 2026</h3>
+                </div>
+                <div class="calendar-buttons">
+                  <button type="button" id="app-cal-prev" aria-label="Previous month">←</button>
+                  <button type="button" id="app-cal-next" aria-label="Next month">→</button>
+                </div>
+              </div>
+              <div class="calendar-body">
+                <div class="weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+                <div class="dates" id="app-cal-dates" aria-live="polite"></div>
+              </div>
+              <div class="calendar-legend">
+                <span><i class="dot-purple"></i> Scheduled session</span>
+                <span><i class="dot-orange"></i> Exchange proposal</span>
+              </div>
+            </div>
+
+            <!-- Upcoming Session Card -->
+            <article class="upcoming-card tilt-card">
+              <div class="upcoming-top">
+                <span class="session-badge">Upcoming session</span>
+                <button type="button" aria-label="Options">•••</button>
+              </div>
+              <div class="session-person">
+                <span class="mini-portrait">
+                  <img src="miraz.jpg" alt="Miraz" />
+                </span>
+                <div>
+                  <h3>Designing brands that feel human</h3>
+                  <p>with Miraz Montasir</p>
+                </div>
+              </div>
+              <div class="session-meta">
+                <span><i>◷</i> Fri, Sep 18 · 6:30 PM (BST)</span>
+                <span><i>⌖</i> Google Meet (Live room ready)</span>
+              </div>
+
+              <!-- Interactive Google Meet Link Option -->
+              <div class="session-meet-card" id="session-meet-card">
+                <div class="meet-card-header">
+                  <div class="meet-brand-badge">
+                    <svg class="meet-logo-svg" viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <rect x="2" y="5" width="14" height="14" rx="3" fill="#00832D"/>
+                      <path d="M16 10L21 6.5V17.5L16 14V10Z" fill="#0066DA"/>
+                      <rect x="2" y="5" width="14" height="14" rx="3" fill="#00AC47"/>
+                      <path d="M7 9H11M7 12H11M7 15H9" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <strong>Google Meet Session</strong>
+                  </div>
+                  <span class="meet-status-indicator"><i class="live-pulse-dot"></i> Room Ready</span>
+                </div>
+                <div class="meet-link-row">
+                  <div class="meet-link-bubble" title="Google Meet Room Link">
+                    <span class="meet-icon-link">🔗</span>
+                    <a href="https://meet.google.com/qmv-ytpk-zbw" target="_blank" rel="noopener noreferrer" id="active-meet-url" class="active-meet-url">meet.google.com/qmv-ytpk-zbw</a>
+                  </div>
+                  <div class="meet-actions-group">
+                    <button type="button" class="meet-btn-copy" id="copy-meet-link-btn" title="Copy Google Meet link to share">
+                      📋 Copy Link
+                    </button>
+                    <button type="button" class="meet-btn-share" id="open-meet-modal-btn" title="Provide or Share a new Google Meet link">
+                      ✏️ Share Link
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-progress">
+                <div>
+                  <span>Session preparation</span>
+                  <b>80%</b>
+                </div>
+                <span><i></i></span>
+              </div>
+              <div class="session-actions">
+                <button class="button button-mini meet-primary-join-btn" type="button" id="join-session" title="Directly launch Google Meet in new tab">
+                  📹 Join Google Meet <span>→</span>
+                </button>
+                <button class="outline-button" type="button" id="open-chat">Message Miraz</button>
+              </div>
+            </article>
+
+            <!-- Chat Card with simulated peer reply -->
+            <article class="chat-card tilt-card" id="chat-card">
+              <div class="chat-head">
+                <div>
+                  <span class="mini-portrait">
+                    <img src="miraz.jpg" alt="Miraz" />
+                  </span>
+                  <div>
+                    <h3>Miraz Montasir</h3>
+                    <p><i></i> Active now</p>
+                  </div>
+                </div>
+                <button type="button" aria-label="Settings">•••</button>
+              </div>
+              <div class="chat-messages" id="chat-messages">
+                <p class="chat-date">Today</p>
+                <div class="message incoming">I added the Figma case studies to our shared session board! Looking forward to reviewing motion graphics ideas with you.</div>
+                <div class="message outgoing">Awesome! I prepared a few dynamic transition concepts. See you on Friday!</div>
+              </div>
+              <form class="chat-compose" id="chat-form">
+                <label class="sr-only" for="chat-input">Message Miraz</label>
+                <input id="chat-input" placeholder="Write a message to Miraz..." autocomplete="off" />
+                <button type="submit" aria-label="Send message">↑</button>
+              </form>
+            </article>
+          </div>
+        </section>
+
+        <!-- Community Section -->
+        <section class="community-section section-shell" id="community">
+          <div class="community-card tilt-card reveal">
+            <div class="community-copy">
+              <p class="eyebrow"><span></span> Built on trust</p>
+              <h2>Every great learner has something worth <em>sharing.</em></h2>
+              <p>Verified learning histories, thoughtful reviews, and reciprocal ratings make SkillSwap a generous and inspiring home for growth.</p>
+              <a class="explore-link" href="#discover">Meet our community <span>→</span></a>
+            </div>
+            <div class="review-stack">
+              <article class="review-card review-back">
+                <span class="rating">★★★★★</span>
+                <p>“I signed up for a single Python session and gained a brilliant mentor and collaborator.”</p>
+                <div>
+                  <span class="mini-portrait">
+                    <img src="shoptoshi.jpg" alt="Shoptorshi" />
+                  </span>
+                  <strong>Shoptorshi Chumky</strong>
+                </div>
+              </article>
+              <article class="review-card review-front">
+                <span class="rating">★★★★★</span>
+                <p>“The swap was effortless from the very first greeting. We both walked away with tangible skills.”</p>
+                <div>
+                  <span class="mini-portrait">
+                    <img src="saif.jpg" alt="Khaled" />
+                  </span>
+                  <div>
+                    <strong>Khaled Saifullah</strong>
+                    <small>Photography ⇄ UX writing</small>
+                  </div>
+                </div>
+              </article>
+              <span class="stat-bubble">
+                <b>4.9/5</b>
+                <small>rating</small>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <section class="final-cta section-shell">
+          <p class="eyebrow"><span></span> Ready to begin?</p>
+          <h2>What will you <em>share</em> next?</h2>
+          <p>Join a vibrant global community where your skills empower someone else to reach their goals.</p>
+          <button class="button button-emerald open-request" data-person="a new skill partner" type="button">
+            Propose a new swap <span aria-hidden="true">→</span>
+          </button>
+        </section>
+      </main>
+
+      <!-- Site Footer -->
+      <footer class="site-footer section-shell">
+        <a class="brand" href="#home" aria-label="SkillSwap home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 38 38" fill="none">
+              <path d="M8 12L19 4L30 12L19 20L8 12Z" fill="#3B66FF" />
+              <path d="M8 20L19 12L30 20L19 28L8 20Z" fill="#254EDB" />
+              <path d="M8 28L19 20L30 28L19 36L8 28Z" fill="#10B981" />
+            </svg>
+          </span>
+          <span>Skill<span>Swap</span></span>
+        </a>
+        <p>Small swaps. Big possibilities.</p>
+        <div>
+          <a href="#home">Home</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#discover">Explore</a>
+          <a href="#sessions">Sessions</a>
+          <a href="#community">Community</a>
+        </div>
+        <small>© 2026 SkillSwap Inc. Built for lifelong learners.</small>
+      </footer>
+    </div>
+
+    <!-- Exchange Proposal Modal -->
+    <div class="modal-backdrop" id="request-modal" aria-hidden="true">
+      <section class="request-modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="request-modal-close" type="button" aria-label="Close modal">✕</button>
+        <span class="eyebrow">Start an exchange</span>
+        <h2>Connect with <span id="request-person">Miraz Montasir</span></h2>
+        <p>Propose what skill you want to learn and describe what you can teach in return.</p>
+        <form id="request-form">
+          <label>
+            Skill I want to learn:
+            <input required name="learn" placeholder="e.g. Brand strategy, Motion design" />
+          </label>
+          <label>
+            Skill I can share in return:
+            <input required name="teach" placeholder="e.g. Python, UX writing, Guitar" />
+          </label>
+          <label>
+            Personal introduction:
+            <textarea name="message" rows="3" placeholder="Hi! I'd love to connect for a weekly exchange..."></textarea>
+          </label>
+          <button class="button button-primary" type="submit">
+            Send exchange proposal <span aria-hidden="true">→</span>
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <!-- Google Meet Link Provider / Share Modal -->
+    <div class="modal-backdrop" id="meet-link-modal" aria-hidden="true">
+      <section class="request-modal meet-share-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="meet-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="meet-modal-badge">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <rect x="2" y="5" width="14" height="14" rx="3" fill="#00832D"/>
+            <path d="M16 10L21 6.5V17.5L16 14V10Z" fill="#0066DA"/>
+            <rect x="2" y="5" width="14" height="14" rx="3" fill="#00AC47"/>
+            <path d="M7 9H11M7 12H11M7 15H9" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="eyebrow">Google Meet Integration</span>
+        </div>
+        <h2>Share Google Meet Session Link</h2>
+        <p>Provide or update the Google Meet room link. All participants in this session can click and join directly.</p>
+        
+        <form id="meet-share-form" class="meet-share-form">
+          <label for="input-meet-url">
+            Google Meet Link URL:
+            <div class="meet-input-row">
+              <input type="url" id="input-meet-url" required placeholder="https://meet.google.com/xxx-yyyy-zzz" value="https://meet.google.com/qmv-ytpk-zbw" />
+              <button type="button" class="meet-quick-gen-btn" id="generate-meet-btn" title="Generate a fresh Google Meet link">⚡ Generate Link</button>
+            </div>
+          </label>
+          <div class="meet-dialog-actions">
+            <button class="button button-primary" type="submit">
+              Save & Share Link with Participants <span>→</span>
+            </button>
+            <button class="outline-button" id="meet-modal-cancel" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Google Account Sign-In Modal -->
+    <div class="modal-backdrop" id="google-login-modal" aria-hidden="true">
+      <div class="google-login-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="google-modal-close" type="button" aria-label="Close">✕</button>
+        <div class="google-dialog-header">
+          <svg viewBox="0 0 24 24" width="38" height="38">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z" />
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z" />
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z" />
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+          </svg>
+          <h3>Sign in with Google</h3>
+          <p>to continue to <strong>SkillSwap</strong></p>
+        </div>
+        <div class="google-accounts-list">
+          <button type="button" class="google-account-item" id="google-acc-alex">
+            <span class="google-avatar-wrap">
+              <img src="saif.jpg" alt="Alex Chen" />
+            </span>
+            <div class="google-acc-info">
+              <strong>Alex Chen</strong>
+              <span>alex.chen@gmail.com</span>
+            </div>
+            <span class="google-acc-arrow">→</span>
+          </button>
+          
+          <div class="google-custom-account">
+            <label for="google-custom-email">Or use another Google account:</label>
+            <div class="google-custom-input-row">
+              <input type="email" id="google-custom-email" placeholder="your.name@gmail.com" />
+              <button type="button" id="google-custom-submit-btn" class="google-custom-btn">Sign in</button>
+            </div>
+          </div>
+        </div>
+        <div class="google-dialog-footer">
+          <p>To continue, Google will share your name, email address, and language preference with SkillSwap.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Learning Goals / Skill Interest Modal -->
+    <div class="modal-backdrop" id="learning-goals-modal" aria-hidden="true">
+      <section class="request-modal learning-goals-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="goals-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="meet-modal-badge" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);">
+          <span>🎯</span>
+          <span class="eyebrow">SkillSwap Match Profile</span>
+        </div>
+        <h2>What Do You Want to Learn?</h2>
+        <p>Enter the skills, tools, or hands-on projects you are interested in learning. This will be visible on your profile so other peers can understand your goals and connect for a skill exchange.</p>
+        
+        <form id="learning-goals-form" class="goals-form">
+          <label for="input-user-learning">
+            Skill or Topic I Want to Learn:
+            <input type="text" id="input-user-learning" required placeholder="e.g. Next.js 14, UI/UX Design, Docker, Python Machine Learning" />
+          </label>
+
+          <label for="input-user-project">
+            Project or Goal I'm Interested In / Building:
+            <input type="text" id="input-user-project" required placeholder="e.g. Building an AI SaaS App, Redesigning an E-Commerce store, Portfolio website" />
+          </label>
+
+          <label for="input-user-teach">
+            Skill I Can Offer in Exchange:
+            <input type="text" id="input-user-teach" placeholder="e.g. UI/UX Design, Figma & Design Systems, Video Editing" />
+          </label>
+
+          <label for="input-user-cadence">
+            Preferred Exchange Cadence:
+            <select id="input-user-cadence">
+              <option value="Weekly Google Meet Sessions">Weekly Google Meet Sessions</option>
+              <option value="2 sessions/week · 45 mins each">2 sessions/week · 45 mins each</option>
+              <option value="Flexible / Weekend sprints">Flexible / Weekend sprints</option>
+              <option value="Daily quick syncs · 30 mins">Daily quick syncs · 30 mins</option>
+            </select>
+          </label>
+
+          <div class="meet-dialog-actions">
+            <button class="button button-primary" type="submit">
+              Save & Update Profile <span>✓</span>
+            </button>
+            <button class="outline-button" id="goals-modal-cancel" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Toast Notification Banner -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span>✓</span>
+      <p id="toast-message">Your request is ready to send.</p>
+    </div>
+
+    <script src="scripts.js"></script>
+    <!-- Set window.SKILLSWAP_API_BASE before this if your backend isn't on localhost:4000 -->
+    <script src="api-client.js"></script>
+  </body>
+</html>
