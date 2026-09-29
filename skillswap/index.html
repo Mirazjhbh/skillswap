@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SkillSwap - Professional Peer-to-Peer Knowledge Exchange Platform. Trade skills, build freelance careers, and collaborate."
+    />
+    <title>SkillSwap - Learn • Share • Grow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Elegant Synapse Canvas -->
+    <canvas id="synapse-canvas" aria-hidden="true"></canvas>
+    <div class="page-glow glow-one" aria-hidden="true"></div>
+    <div class="page-glow glow-two" aria-hidden="true"></div>
+
+    <!-- ========================================================= -->
+    <!-- 1. AUTHENTICATION GATEWAY                                 -->
+    <!-- ========================================================= -->
+    <div id="auth-gateway" aria-label="SkillSwap Authentication Gateway">
+      <!-- 4-Quadrant Visual Grid -->
+      <div class="gateway-grid-bg" aria-hidden="true">
+        <!-- Top-Left: Web Development -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+            alt="Software engineer coding at laptop"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-top-left">
+            <span class="handwritten-text">Share<br />Your Skills</span>
+            <div class="skill-tag-pill pill-webdev">
+              <span aria-hidden="true">&lt;/&gt;</span> Web Development
+            </div>
+          </div>
+        </div>
+
+        <!-- Top-Right: Freelancing -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+            alt="Freelancer working remotely on a laptop"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-top-right">
+            <span class="handwritten-text">Build<br />Your Future</span>
+            <div class="skill-tag-pill pill-freelance">
+              <span aria-hidden="true">💼</span> Freelancing
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom-Left: Graphic Design -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80"
+            alt="Designer sketching and working on laptop"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-bottom-left">
+            <span class="handwritten-text">Learn<br />New Skills</span>
+            <div class="skill-tag-pill pill-design">
+              <span aria-hidden="true">✏️</span> Graphic Design
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom-Right: Skill Sharing & Mentorship -->
+        <div class="gateway-quadrant">
+          <img
+            class="quadrant-img"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+            alt="Colleagues learning and collaborating together"
+            loading="eager"
+          />
+          <div class="quadrant-overlay"></div>
+          <div class="quadrant-content callout-bottom-right">
+            <span class="handwritten-text">Grow<br />Together</span>
+            <div class="skill-tag-pill pill-sharing">
+              <span aria-hidden="true">👥</span> Skill Sharing
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gateway Header Bar -->
+      <header class="gateway-header">
+        <div class="gateway-brand">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="38" height="38">
+              <ellipse cx="15" cy="22" rx="12" ry="10" fill="#3B66FF" opacity="0.9"/>
+              <ellipse cx="33" cy="22" rx="12" ry="10" fill="#10B981" opacity="0.9"/>
+              <ellipse cx="24" cy="22" rx="6" ry="10" fill="url(#logoGradA)" opacity="0.95"/>
+              <path d="M24 15 L21 21 L24 19 L27 21 Z" fill="white" opacity="0.95"/>
+              <path d="M24 29 L21 23 L24 25 L27 23 Z" fill="white" opacity="0.95"/>
+              <defs>
+                <linearGradient id="logoGradA" x1="18" y1="12" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B66FF"/>
+                  <stop offset="1" stop-color="#10B981"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-title-group">
+            <span class="brand-main-title">SkillSwap</span>
+            <span class="brand-tagline">Learn • Share • Grow.</span>
+          </div>
+        </div>
+
+        <div class="gateway-header-right">
+          <div class="gateway-calendar-widget" aria-label="Live weekly calendar">
+            <div class="cal-widget-head">
+              <button class="cal-nav-btn" id="gw-cal-prev" type="button" aria-label="Previous week">‹</button>
+              <span class="cal-widget-title" id="gw-cal-title">Live Calendar</span>
+              <button class="cal-nav-btn" id="gw-cal-next" type="button" aria-label="Next week">›</button>
+            </div>
+            <div class="cal-week-labels">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <div class="cal-week-days" id="gw-cal-days"></div>
+          </div>
+
+          <div class="gw-header-ctas">
+            <button type="button" class="gw-header-demo-btn" id="gw-top-demo-btn" title="Explore live community and features">
+              ⚡ Guest Access
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Center Floating Authentication Card -->
+      <div class="gateway-center-wrap">
+        <div class="gateway-card">
+          <!-- Animated Mascot Companion: DEX -->
+          <div class="mascot-companion" aria-hidden="true" title="Dex - Your SkillSwap Companion">
+            <svg class="mascot-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="50" cy="50" rx="36" ry="34" fill="url(#mascotBodyGrad)" />
+              <ellipse cx="50" cy="48" rx="28" ry="24" fill="#0F172A" />
+              <ellipse class="mascot-eye" cx="40" cy="46" rx="4.5" ry="6" fill="#60A5FA" />
+              <ellipse class="mascot-eye" cx="60" cy="46" rx="4.5" ry="6" fill="#60A5FA" />
+              <circle cx="41.5" cy="44" r="1.8" fill="#FFFFFF" />
+              <circle cx="61.5" cy="44" r="1.8" fill="#FFFFFF" />
+              <path d="M43 54C46 57 54 57 57 54" stroke="#34D399" stroke-width="2.8" stroke-linecap="round" />
+              <path d="M50 16V10" stroke="#3B66FF" stroke-width="3" stroke-linecap="round" />
+              <circle cx="50" cy="8" r="4.5" fill="#10B981" />
+              <path class="mascot-arm-wave" d="M16 48C8 38 6 26 12 22C18 18 24 30 22 42" fill="url(#mascotBodyGrad)" />
+              <defs>
+                <linearGradient id="mascotBodyGrad" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B66FF" />
+                  <stop offset="1" stop-color="#10B981" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="card-header-brand">
+            <div class="card-logo">
+              <svg viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="38" height="38">
+              <ellipse cx="15" cy="22" rx="12" ry="10" fill="#3B66FF" opacity="0.9"/>
+              <ellipse cx="33" cy="22" rx="12" ry="10" fill="#10B981" opacity="0.9"/>
+              <ellipse cx="24" cy="22" rx="6" ry="10" fill="url(#logoGradB)" opacity="0.95"/>
+              <path d="M24 15 L21 21 L24 19 L27 21 Z" fill="white" opacity="0.95"/>
+              <path d="M24 29 L21 23 L24 25 L27 23 Z" fill="white" opacity="0.95"/>
+              <defs>
+                <linearGradient id="logoGradB" x1="18" y1="12" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B66FF"/>
+                  <stop offset="1" stop-color="#10B981"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            </div>
+            <span class="card-brand-text">SkillSwap</span>
+            <span class="card-tagline-text">Learn • Share • Grow.</span>
+          </div>
+
+          <div class="gateway-tab-switcher" role="tablist" aria-label="Sign In or Sign Up">
+            <button type="button" class="gw-tab-btn active" id="tab-login" role="tab" aria-selected="true">
+              <span class="tab-icon">🔑</span> Log In
+            </button>
+            <button type="button" class="gw-tab-btn" id="tab-signup" role="tab" aria-selected="false">
+              <span class="tab-icon">✨</span> Sign Up Free
+            </button>
+          </div>
+
+          <h2 class="card-title" id="gateway-card-title">Welcome Back!</h2>
+          <p class="card-subtitle" id="gateway-card-subtitle">Login to your account or create a new one to get started.</p>
+
+          <div class="gateway-auth-error" id="gw-auth-error" hidden role="alert">
+            <span>⚠️</span> <span id="gw-auth-error-text">Invalid email or password. Please try again.</span>
+          </div>
+
+          <button class="gateway-google-btn" id="gw-google-btn" type="button" aria-label="Sign in with Google">
+            <svg class="google-svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z" />
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z" />
+              <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z" />
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+            </svg>
+            <span id="gw-google-label">Sign in with Google</span>
+          </button>
+
+          <div class="gateway-divider">
+            <span>or continue with email</span>
+          </div>
+
+          <!-- Demo Credentials Hint -->
+          <div class="demo-credentials-hint" id="demo-creds-hint">
+            <span class="demo-creds-icon">&#128273;</span>
+            <div class="demo-creds-body">
+              <strong>Quick Demo Login:</strong>
+              <div class="demo-creds-list">
+                <button type="button" class="demo-cred-btn" data-email="sadia@skillswap.io" data-pass="password123">
+                  <img src="mim.jpg" alt="Sadia" /> sadia@skillswap.io
+                </button>
+                <button type="button" class="demo-cred-btn" data-email="khaled@skillswap.io" data-pass="password123">
+                  <img src="saif.jpg" alt="Khaled" /> khaled@skillswap.io
+                </button>
+                <button type="button" class="demo-cred-btn" data-email="miraz@skillswap.io" data-pass="password123">
+                  <img src="miraz.jpg" alt="Miraz" /> miraz@skillswap.io
+                </button>
+              </div>
+              <small>Password for all: <code>password123</code></small>
+            </div>
+          </div>
+
+          <form id="gateway-auth-form" class="gateway-form">
+            <div class="gateway-input-wrap" id="field-signup-name" hidden>
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+              </svg>
+              <input class="gateway-input" id="gw-name-input" type="text" placeholder="Full name (e.g. Alex Chen)" autocomplete="name" />
+            </div>
+
+            <div class="gateway-input-wrap">
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+              <input class="gateway-input" id="gw-email-input" type="email" placeholder="Email address" required autocomplete="email" />
+            </div>
+
+            <div class="gateway-input-wrap">
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+              </svg>
+              <input class="gateway-input" id="gw-pass-input" type="password" placeholder="Password" required autocomplete="current-password" />
+              <button class="gateway-pass-toggle" id="gw-pass-toggle" type="button" aria-label="Toggle password visibility">👁</button>
+            </div>
+
+            <div class="pass-strength-meter" id="pass-strength-meter" hidden>
+              <div class="strength-bar-track">
+                <span class="strength-bar-fill" id="strength-bar-fill"></span>
+              </div>
+              <div class="strength-caption">
+                <span class="strength-label">Password strength:</span>
+                <strong class="strength-val" id="strength-val">Weak</strong>
+              </div>
+            </div>
+
+            <div class="gateway-input-wrap" id="field-signup-skill" hidden>
+              <svg class="gateway-input-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
+              </svg>
+              <input class="gateway-input" id="gw-skill-input" type="text" placeholder="Skill you can teach (e.g. React, UX design)" />
+            </div>
+
+            <div class="gateway-options-row">
+              <label class="gateway-checkbox-label">
+                <input type="checkbox" id="gw-remember" checked />
+                Remember me
+              </label>
+              <a href="#" class="gateway-forgot-link" id="gw-forgot-link">Forgot password?</a>
+            </div>
+
+            <button class="gateway-submit-btn" id="gw-submit-btn" type="submit">
+              Login
+            </button>
+          </form>
+
+          <div class="gateway-card-footer">
+            <span id="gw-footer-prompt">Don't have an account?</span>
+            <button type="button" class="gateway-toggle-link" id="gw-mode-toggle">Sign up</button>
+            <div class="gateway-demo-action">
+              <button type="button" class="gateway-demo-link" id="gw-demo-btn">⚡ Instant Guest Access</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gateway Metrics Bar -->
+      <footer class="gateway-metrics-bar">
+        <div class="metrics-items-group">
+          <div class="metric-col">
+            <div class="metric-icon-circle">👥</div>
+            <div class="metric-info">
+              <span class="metric-num" id="gw-stat-users">1,000+</span>
+              <span class="metric-label">Active Learners</span>
+            </div>
+          </div>
+          <div class="metric-col">
+            <div class="metric-icon-circle">⭐</div>
+            <div class="metric-info">
+              <span class="metric-num" id="gw-stat-rating">4.9 ★</span>
+              <span class="metric-label">Avg Community Rating</span>
+            </div>
+          </div>
+          <div class="metric-col">
+            <div class="metric-icon-circle">🤝</div>
+            <div class="metric-info">
+              <span class="metric-num" id="gw-stat-exchanges">500+</span>
+              <span class="metric-label">Mutual Exchanges</span>
+            </div>
+          </div>
+          <div class="metric-highlight">
+            <div class="metric-icon-circle">❤️</div>
+            <div>
+              <strong>Learn Today</strong>
+              <small>Build Tomorrow</small>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 2. MAIN APPLICATION                                       -->
+    <!-- ========================================================= -->
+    <div id="main-app" hidden>
+      <!-- Site Header -->
+      <header class="site-header">
+        <div class="site-header-inner">
+          <a class="brand" href="#home" aria-label="SkillSwap home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="38" height="38">
+              <ellipse cx="15" cy="22" rx="12" ry="10" fill="#3B66FF" opacity="0.9"/>
+              <ellipse cx="33" cy="22" rx="12" ry="10" fill="#10B981" opacity="0.9"/>
+              <ellipse cx="24" cy="22" rx="6" ry="10" fill="url(#logoGradC)" opacity="0.95"/>
+              <path d="M24 15 L21 21 L24 19 L27 21 Z" fill="white" opacity="0.95"/>
+              <path d="M24 29 L21 23 L24 25 L27 23 Z" fill="white" opacity="0.95"/>
+              <defs>
+                <linearGradient id="logoGradC" x1="18" y1="12" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B66FF"/>
+                  <stop offset="1" stop-color="#10B981"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            </span>
+            <span>Skill<span>Swap</span></span>
+          </a>
+
+          <nav class="main-nav" aria-label="Main navigation">
+            <a class="active" href="#home">Home</a>
+            <a href="#how-it-works">How it works</a>
+            <a href="#discover">Discover</a>
+            <a href="#swipe">Swipe</a>
+            <a href="#sessions">Sessions</a>
+            <a href="#feed">Discussions</a>
+            <a href="#community">Reviews</a>
+          </nav>
+
+          <div class="header-actions">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch dark/light mode">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.42 1.42M16.94 16.94l1.42 1.42M18.36 5.64l-1.42 1.42M7.06 16.94l-1.42 1.42M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+              </svg>
+            </button>
+
+            <!-- Notifications Bell with Dropdown -->
+            <div class="header-notif-wrap">
+              <button type="button" class="notif-bell-btn" id="notif-bell-btn" aria-label="Notifications" title="Notifications">
+                🔔
+                <span class="notif-badge-count" id="notif-badge-count" hidden>0</span>
+              </button>
+              <div class="notif-dropdown" id="notif-dropdown">
+                <div class="notif-dropdown-header">
+                  <strong>Notifications</strong>
+                  <button type="button" class="notif-mark-read-btn" id="notif-mark-all-read">Mark all as read</button>
+                </div>
+                <div class="notif-list" id="notif-list">
+                  <div class="notif-empty">No notifications yet.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top Navigation Login & Sign Up Options -->
+            <div class="site-header-auth-nav" id="site-header-auth-nav">
+              <button type="button" class="site-nav-auth-btn site-nav-login" id="site-nav-login-btn">
+                Log In
+              </button>
+              <button type="button" class="site-nav-auth-btn site-nav-signup" id="site-nav-signup-btn">
+                Sign Up
+              </button>
+            </div>
+
+            <!-- Logged-in User Profile Dropdown -->
+            <div class="user-profile-badge">
+              <button class="user-avatar-btn" id="user-menu-btn" aria-expanded="false" type="button">
+                <span class="avatar-ring">
+                  <img id="header-user-avatar" src="saif.jpg" alt="User avatar" width="32" height="32" />
+                </span>
+                <span class="user-name-short" id="header-user-name">Alex</span>
+                <svg class="chevron-icon" viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div class="user-dropdown-menu" id="user-dropdown-menu">
+                <div class="user-menu-header">
+                  <strong id="dropdown-user-name">Alex Chen</strong>
+                  <small id="dropdown-user-email">alex.chen@skillswap.io</small>
+                  <span class="user-badge-level" id="dropdown-user-badge">Verified Member</span>
+                </div>
+                <div class="user-menu-goals">
+                  <div class="user-menu-goal-item">
+                    <span class="user-goal-tag">🎯 Wants to Learn:</span>
+                    <strong id="menu-user-learning">Next.js & AI Agents</strong>
+                  </div>
+                  <div class="user-menu-goal-item">
+                    <span class="user-goal-tag">💡 Can Teach:</span>
+                    <span id="menu-user-teach">UI/UX Design, Figma</span>
+                  </div>
+                </div>
+                <hr />
+                <button type="button" class="menu-item" id="menu-edit-goals-btn">✏️ Edit Profile & Learning Goals</button>
+                <button type="button" class="menu-item" id="menu-view-favs-btn">⭐ View My Saved Favorites</button>
+                <a href="#sessions" class="menu-item">📅 My Scheduled Sessions</a>
+                <button type="button" class="menu-item open-request" data-person="a new skill partner">✨ New Swap Proposal</button>
+                <hr />
+                <button type="button" class="menu-item logout-btn" id="app-logout-btn">🔒 Log out (Lock Site)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero Section -->
+        <section class="hero section-shell" id="home">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span></span> Learn together, grow together</p>
+            <h1 class="hero-title-stagger" id="hero-stagger-title">
+              <span class="stagger-word" style="--w: 1">Your</span>
+              <span class="stagger-word" style="--w: 2">next</span>
+              <span class="stagger-word" style="--w: 3">teacher</span>
+              <span class="stagger-word" style="--w: 4">is</span>
+              <span class="stagger-word" style="--w: 5">already</span>
+              <span class="stagger-word" style="--w: 6">in</span>
+              <span class="stagger-word" style="--w: 7">your</span>
+              <span class="stagger-word word-highlight" style="--w: 8"><em>community.</em></span>
+            </h1>
+            <p class="hero-text">
+              Trade what you know for what you want to learn. SkillSwap makes it seamless to find peers,
+              agree on reciprocal knowledge exchanges, and accelerate your freelance career together.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary hero-cta-btn" href="#discover">Find a skill partner <span aria-hidden="true">→</span></a>
+              <button class="text-button" type="button" data-scroll-target="#how-it-works">
+                <span class="play-icon" aria-hidden="true">▶</span> See how it works
+              </button>
+            </div>
+            <div class="social-proof">
+              <div class="avatar-stack" aria-label="Real community members">
+                <span class="avatar" title="Sadia Ahmed Mim">
+                  <img src="mim.jpg" alt="Sadia Ahmed Mim" />
+                </span>
+                <span class="avatar" title="Khaled Saifullah">
+                  <img src="saif.jpg" alt="Khaled Saifullah" />
+                </span>
+                <span class="avatar" title="Shoptorshi Chumky">
+                  <img src="shoptoshi.jpg" alt="Shoptorshi Chumky" />
+                </span>
+                <span class="avatar" title="Miraz Montasir">
+                  <img src="miraz.jpg" alt="Miraz Montasir" />
+                </span>
+              </div>
+              <p><strong>1,000+ curious professionals</strong><br />actively exchanging skills this week</p>
+            </div>
+
+            <!-- Hero Live Stats Banner (Synced with SQLite DB) -->
+            <div class="hero-live-stats" id="hero-live-stats">
+              <div class="hero-stat-col">
+                <div class="hero-stat-icon">👥</div>
+                <div>
+                  <div class="hero-stat-num" id="stat-total-users">6</div>
+                  <div class="hero-stat-lbl">Active Peers</div>
+                </div>
+              </div>
+              <div class="hero-stat-col">
+                <div class="hero-stat-icon">🤝</div>
+                <div>
+                  <div class="hero-stat-num" id="stat-total-exchanges">3</div>
+                  <div class="hero-stat-lbl">Exchanges</div>
+                </div>
+              </div>
+              <div class="hero-stat-col">
+                <div class="hero-stat-icon">📅</div>
+                <div>
+                  <div class="hero-stat-num" id="stat-total-sessions">4</div>
+                  <div class="hero-stat-lbl">Sessions</div>
+                </div>
+              </div>
+              <div class="hero-stat-col">
+                <div class="hero-stat-icon">⭐</div>
+                <div>
+                  <div class="hero-stat-num" id="stat-avg-rating">5.0 ★</div>
+                  <div class="hero-stat-lbl">Avg Rating</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal reveal-delay" id="hero-interactive-stage">
+            <svg class="hero-network-svg" id="hero-network-svg" viewBox="0 0 560 500" fill="none" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <filter id="neonPulseGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <path class="net-base-path" d="M 120 110 C 170 110, 190 190, 240 220" />
+              <path class="net-base-path" d="M 120 380 C 170 380, 190 280, 240 240" />
+              <path class="net-base-path" d="M 280 220 C 330 220, 340 190, 390 190" />
+              <path class="net-base-path" d="M 280 240 C 330 240, 340 310, 390 310" />
+              <path class="net-base-path net-intercard" d="M 100 160 C 55 240, 55 270, 100 340" />
+
+              <path class="net-stream-path stream-1" d="M 120 110 C 170 110, 190 190, 240 220" />
+              <path class="net-stream-path stream-2" d="M 120 380 C 170 380, 190 280, 240 240" />
+              <path class="net-stream-path stream-3" d="M 280 220 C 330 220, 340 190, 390 190" />
+              <path class="net-stream-path stream-4" d="M 280 240 C 330 240, 340 310, 390 310" />
+
+              <circle class="photon-packet" r="4.5" fill="#60A5FA" filter="url(#neonPulseGlow)">
+                <animateMotion dur="2.6s" repeatCount="indefinite" path="M 120 110 C 170 110, 190 190, 240 220" />
+              </circle>
+              <circle class="photon-packet" r="4.5" fill="#A855F7" filter="url(#neonPulseGlow)">
+                <animateMotion dur="3.0s" repeatCount="indefinite" path="M 120 380 C 170 380, 190 280, 240 240" />
+              </circle>
+              <circle class="photon-packet photon-emerald" r="4" fill="#34D399" filter="url(#neonPulseGlow)">
+                <animateMotion dur="2.4s" repeatCount="indefinite" path="M 280 220 C 330 220, 340 190, 390 190" />
+              </circle>
+              <circle class="photon-packet" r="4" fill="#60A5FA" filter="url(#neonPulseGlow)">
+                <animateMotion dur="2.8s" repeatCount="indefinite" path="M 280 240 C 330 240, 340 310, 390 310" />
+              </circle>
+            </svg>
+
+            <div class="hero-mascot-tip">
+              <span class="mascot-mini-icon">🤖</span>
+              <p>Dex: "Ready to trade skills and build real projects?"</p>
+            </div>
+
+            <!-- Profile Card 1 -->
+            <div class="hero-peer-card peer-card-top-left tilt-card" id="user-card-1">
+              <div class="peer-avatar">
+                <img src="mim.jpg" alt="Sadia Ahmed Mim - UI/UX Designer" />
+                <span class="peer-pulse-status" title="Active now"></span>
+              </div>
+              <div class="peer-details">
+                <strong class="peer-name">Sadia Ahmed Mim <span class="verified-dot">✓</span></strong>
+                <span class="peer-role">Lead UI/UX Designer</span>
+                <div class="peer-tags">
+                  <span class="tag-teach">Teach: Figma & Systems</span>
+                  <span class="tag-learn">Learn: 3D Web & React</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center SkillSwap Icon -->
+            <div class="hero-center-hub" id="hero-center-hub" title="SkillSwap Core Hub">
+              <div class="hub-neon-aura" aria-hidden="true"></div>
+              <div class="hub-rotating-orbit" aria-hidden="true">
+                <span class="orbit-sparkle sparkle-1"></span>
+                <span class="orbit-sparkle sparkle-2"></span>
+              </div>
+              <div class="hub-center-icon-box">
+                <svg class="hub-emblem-svg" viewBox="0 0 48 36" fill="none" width="38" height="38">
+                  <ellipse cx="15" cy="22" rx="12" ry="10" fill="#3B66FF" opacity="0.9"/>
+                  <ellipse cx="33" cy="22" rx="12" ry="10" fill="#10B981" opacity="0.9"/>
+                  <ellipse cx="24" cy="22" rx="6" ry="10" fill="url(#hubGrad)" opacity="0.95"/>
+                  <path d="M24 15 L21 21 L24 19 L27 21 Z" fill="white" opacity="0.95"/>
+                  <path d="M24 29 L21 23 L24 25 L27 23 Z" fill="white" opacity="0.95"/>
+                  <defs>
+                    <linearGradient id="hubGrad" x1="18" y1="12" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#3B66FF"/>
+                      <stop offset="1" stop-color="#10B981"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <span class="hub-caption-badge">SkillSwap Core ⇄</span>
+            </div>
+
+            <!-- Profile Card 2 -->
+            <div class="hero-peer-card peer-card-bottom-left tilt-card" id="user-card-2">
+              <div class="peer-avatar">
+                <img src="saif.jpg" alt="Khaled Saifullah - Full-Stack Engineer" />
+                <span class="peer-pulse-status status-blue" title="Active now"></span>
+              </div>
+              <div class="peer-details">
+                <strong class="peer-name">Khaled Saifullah <span class="verified-dot">✓</span></strong>
+                <span class="peer-role">Full-Stack Engineer</span>
+                <div class="peer-tags">
+                  <span class="tag-teach">Teach: React, Node & TS</span>
+                  <span class="tag-learn">Learn: Cloud DevOps</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured Match Panel -->
+            <div class="match-window tilt-card" id="hero-match-panel">
+              <div class="window-topbar">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span>SkillSwap live match</span>
+                <button aria-label="More options" type="button">•••</button>
+              </div>
+              <div class="match-content">
+                <div class="match-heading">
+                  <div>
+                    <p>Suggested peer for you</p>
+                    <strong>People you can learn with</strong>
+                  </div>
+                  <span class="match-count">Top Fit</span>
+                </div>
+                <article class="featured-match">
+                  <div class="profile-portrait">
+                    <img src="miraz.jpg" alt="Miraz Montasir" loading="lazy" />
+                    <i>●</i>
+                  </div>
+                  <div class="match-person">
+                    <p>Miraz Montasir <span class="verified">✓</span></p>
+                    <small>Creative Director · Brand Strategy</small>
+                  </div>
+                  <button class="more-button" type="button" aria-label="Options">•••</button>
+                  <div class="skill-trade">
+                    <div>
+                      <span class="trade-label">Can teach</span>
+                      <strong>Brand strategy</strong>
+                    </div>
+                    <span class="swap-arrows" aria-hidden="true">⇄</span>
+                    <div>
+                      <span class="trade-label">Wants to learn</span>
+                      <strong>Motion design</strong>
+                    </div>
+                  </div>
+                  <div class="match-footer">
+                    <span class="rating">★ 5.0 <small>(Verified)</small></span>
+                    <button class="button button-mini open-request connect-pulse-btn" type="button" data-person="Miraz Montasir">
+                      Connect <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+                </article>
+
+                <div class="match-row">
+                  <span class="mini-portrait">
+                    <img src="saif.jpg" alt="Khaled" />
+                  </span>
+                  <div>
+                    <strong>Khaled Saifullah</strong>
+                    <small>Photography · UX Writing</small>
+                  </div>
+                  <b>96% fit</b>
+                </div>
+                <div class="match-row">
+                  <span class="mini-portrait">
+                    <img src="shoptoshi.jpg" alt="Shoptorshi" />
+                  </span>
+                  <div>
+                    <strong>Shoptorshi Chumky</strong>
+                    <small>Public Speaking · Python</small>
+                  </div>
+                  <b>92% fit</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Marquee Banner -->
+        <section class="marquee" aria-label="Popular skills">
+          <div class="marquee-track">
+            <span>✦ Web Development</span><span>✦ Freelancing</span><span>✦ Graphic Design</span><span>✦ UI/UX Design</span><span>✦ Python</span><span>✦ Public Speaking</span><span>✦ Illustration</span>
+            <span>✦ Web Development</span><span>✦ Freelancing</span><span>✦ Graphic Design</span><span>✦ UI/UX Design</span><span>✦ Python</span><span>✦ Public Speaking</span><span>✦ Illustration</span>
+          </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="value-section section-shell" id="how-it-works">
+          <div class="section-intro reveal">
+            <p class="eyebrow"><span></span> A better way to learn</p>
+            <h2>Knowledge moves farther when we <em>share it.</em></h2>
+          </div>
+          <div class="value-grid">
+            <article class="value-card value-card-featured tilt-card reveal" id="find-people-card">
+              <span class="number">01</span>
+              <div class="value-icon icon-search"><span></span></div>
+              <h3>Find your people</h3>
+              <p>Discover peers who have the exact skills you want — and want what you can offer.</p>
+              
+              <div class="quick-skill-finder" aria-label="Quick skill selector">
+                <label for="quick-skill-select" class="quick-label">Select a skill to explore:</label>
+                <div class="quick-select-wrap">
+                  <select id="quick-skill-select">
+                    <option value="" disabled selected>Select a skill...</option>
+                    <option value="Brand strategy">Brand strategy</option>
+                    <option value="Motion design">Motion design</option>
+                    <option value="Photography">Photography</option>
+                    <option value="UX writing">UX writing</option>
+                    <option value="Python">Python</option>
+                    <option value="Public speaking">Public speaking</option>
+                    <option value="Illustration">Illustration</option>
+                    <option value="React">React</option>
+                  </select>
+                  <button class="button button-mini quick-search-btn" id="quick-search-btn" type="button">
+                    Search <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+                <div class="quick-pills">
+                  <span class="quick-pill-tag">Popular:</span>
+                  <button type="button" class="quick-pill" data-skill="Python">Python</button>
+                  <button type="button" class="quick-pill" data-skill="Motion design">Motion design</button>
+                  <button type="button" class="quick-pill" data-skill="React">React</button>
+                  <button type="button" class="quick-pill" data-skill="Photography">Photography</button>
+                </div>
+              </div>
+              <a href="#discover" class="explore-link">Explore all skills <span>→</span></a>
+            </article>
+
+            <article class="value-card tilt-card reveal reveal-delay">
+              <span class="number">02</span>
+              <div class="value-icon icon-swap"><span>↗</span><span>↙</span></div>
+              <h3>Make it a fair trade</h3>
+              <p>Send a direct exchange proposal detailing what you teach, learn, and your preferred schedule.</p>
+              <a href="#discover" class="explore-link">See proposals <span>→</span></a>
+            </article>
+
+            <article class="value-card tilt-card reveal reveal-delay-two">
+              <span class="number">03</span>
+              <div class="value-icon icon-calendar"><span></span></div>
+              <h3>Meet in Google Meet</h3>
+              <p>Schedule focused reciprocal sessions with 1-click Google Meet video rooms and instant note sharing.</p>
+              <a href="#sessions" class="explore-link">View sessions <span>→</span></a>
+            </article>
+          </div>
+        </section>
+
+        <!-- Discover Section -->
+        <section class="discover-section section-shell" id="discover">
+          <div class="discover-header reveal">
+            <div>
+              <p class="eyebrow"><span></span> Meet your match</p>
+              <h2>Find someone to learn <em>with.</em></h2>
+            </div>
+            <p>Choose a category, search for specific skills, and connect directly with vetted community partners.</p>
+          </div>
+
+          <div class="finder reveal">
+            <label class="search-field" for="skill-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4.35-4.35"></path></svg>
+              <input id="skill-search" type="search" placeholder="What do you want to learn? (e.g. Python, Motion design, UX writing...)" autocomplete="off" />
+            </label>
+            <button class="search-clear-btn" id="search-clear" type="button" title="Clear search" hidden>✕</button>
+            <button class="button button-primary" id="search-button" type="button">Search partners <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div class="filter-row reveal" aria-label="Category filters">
+            <button class="filter active" data-filter="all" type="button">All skills</button>
+            <button class="filter" data-filter="design" type="button">Design</button>
+            <button class="filter" data-filter="tech" type="button">Technology</button>
+            <button class="filter" data-filter="business" type="button">Business</button>
+            <button class="filter" data-filter="creative" type="button">Creative</button>
+            <button class="filter" data-filter="language" type="button">Languages</button>
+            <button class="filter" data-filter="favorites" type="button">⭐ My Saved Favorites</button>
+          </div>
+
+          <div class="search-status-bar reveal">
+            <p id="search-status" class="search-status" aria-live="polite">Showing featured peers from database</p>
+            <div id="active-chip-container" hidden>
+              <span class="active-search-chip">
+                <span id="active-chip-text">Filtered</span>
+                <button type="button" id="active-chip-clear" aria-label="Reset filter">✕</button>
+              </span>
+            </div>
+          </div>
+
+          <!-- Incoming Proposals Box -->
+          <div id="incoming-proposals-wrap"></div>
+
+          <!-- My Active Skill Profile Card -->
+          <div class="my-exchange-profile-card tilt-card reveal" id="my-public-exchange-card">
+            <div class="my-profile-badge-head">
+              <div class="my-profile-user-info">
+                <div class="my-profile-avatar-wrap">
+                  <img id="my-profile-avatar-img" src="saif.jpg" alt="My avatar" />
+                  <span class="online-indicator"></span>
+                </div>
+                <div>
+                  <div class="my-name-row">
+                    <h3 id="my-profile-name">Alex Chen</h3>
+                    <span class="user-badge-tag">My Profile (Public to Peers)</span>
+                  </div>
+                  <p class="my-profile-tagline" id="my-profile-role">Skill Swapper • Open for Mutual Exchanges</p>
+                </div>
+              </div>
+              <button type="button" class="button button-mini edit-goals-action-btn" id="trigger-goals-modal-btn">
+                ✏️ Edit Profile & Goals
+              </button>
+            </div>
+
+            <div class="my-goals-grid">
+              <div class="my-goal-item goal-learning">
+                <span class="goal-icon">🎯</span>
+                <div>
+                  <small>What I Want to Learn</small>
+                  <strong id="display-my-learning">Full-Stack Next.js & AI Agents</strong>
+                </div>
+              </div>
+              <div class="my-goal-item goal-project">
+                <span class="goal-icon">🚀</span>
+                <div>
+                  <small>Interested Project / Skill</small>
+                  <strong id="display-my-project">Building an AI Agent Developer Platform</strong>
+                </div>
+              </div>
+              <div class="my-goal-item goal-teach">
+                <span class="goal-icon">💡</span>
+                <div>
+                  <small>Skills I Offer in Exchange</small>
+                  <strong id="display-my-teach">UI/UX Design, Figma & Systems</strong>
+                </div>
+              </div>
+              <div class="my-goal-item goal-status">
+                <span class="goal-icon">⚡</span>
+                <div>
+                  <small>Exchange Cadence</small>
+                  <strong id="display-my-cadence">Weekly Google Meet Sessions</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Peer Cards Grid -->
+          <div class="people-grid" id="people-grid"></div>
+
+          <div class="empty-state-card" id="empty-state" hidden>
+            <p>No matching peers found in this category or search query.</p>
+            <button type="button" class="button button-primary" id="empty-state-edit-btn">
+              ✏️ Add Your Skills to Community
+            </button>
+          </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- SWIPE FEATURE & FEATURED PROFILES SECTION                 -->
+        <!-- ========================================================= -->
+        <section class="swipe-section section-shell" id="swipe">
+          <div class="swipe-header reveal">
+            <div>
+              <p class="eyebrow"><span></span> Discover matches</p>
+              <h2>Swipe to find your <em>skill partner.</em></h2>
+            </div>
+            <p>Swipe right on profiles you want to connect with. The most interacted profiles appear as <strong>Featured</strong> below.</p>
+          </div>
+
+          <!-- Swipe Card Deck Arena -->
+          <div class="swipe-arena" id="swipe-arena">
+            <div class="swipe-deck" id="swipe-deck">
+              <!-- Swipe cards injected by JS -->
+              <div class="swipe-empty-state" id="swipe-empty">
+                <div class="swipe-empty-icon">&#127881;</div>
+                <h3>You've seen everyone!</h3>
+                <p>Check out the Featured Profiles below, or come back later for new members.</p>
+                <button type="button" class="button button-primary" id="swipe-reset-btn">&#8635; Shuffle &amp; Start Over</button>
+              </div>
+            </div>
+            <div class="swipe-action-btns">
+              <button type="button" class="swipe-btn swipe-btn-small" id="swipe-view-btn" title="View Profile" style="font-size: 20px; color: var(--ink);">
+                <span>&#128100;</span>
+              </button>
+              <button type="button" class="swipe-btn swipe-left-btn" id="swipe-left-btn" title="Cross/Skip">
+                <span>&#10005;</span>
+              </button>
+              <button type="button" class="swipe-btn swipe-right-btn" id="swipe-like-btn" title="Like/Love">
+                <span>&#10084;</span>
+              </button>
+              <button type="button" class="swipe-btn swipe-btn-small" id="swipe-connect-btn" title="Connect" style="font-size: 20px; color: var(--royal-blue);">
+                <span>&#129309;</span>
+              </button>
+            </div>
+            <div class="swipe-hint-row">
+              <span class="swipe-hint-left">&#8592; Cross/Skip</span>
+              <span class="swipe-hint-right">Like/Love &#8594;</span>
+            </div>
+          </div>
+
+          <!-- Featured Profiles Section -->
+          <div class="featured-section reveal">
+            <div class="featured-header">
+              <h3>&#11088; Featured Profiles</h3>
+              <p>Most interacted-with community members &mdash; ranked by swipe activity</p>
+            </div>
+            <div class="featured-grid" id="featured-grid">
+              <!-- Dynamically populated based on swipe interactions -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Sessions & Real-Time Dynamic Monthly Calendar Section -->
+        <section class="session-section section-shell" id="sessions">
+          <div class="session-intro reveal">
+            <div>
+              <p class="eyebrow"><span></span> Learn on your schedule</p>
+              <h2>Great exchanges start with a <em>great plan.</em></h2>
+            </div>
+            <div class="session-schedule-bar">
+              <button type="button" class="btn-schedule-session" id="open-schedule-modal-btn">
+                📅 Schedule New Session <span>+</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="session-demo reveal">
+            <!-- Real-Time Monthly Calendar Card -->
+            <div class="calendar-card tilt-card">
+              <div class="calendar-head">
+                <div>
+                  <p>Calendar</p>
+                  <h3 id="app-cal-title">Live Calendar</h3>
+                </div>
+                <div class="calendar-buttons">
+                  <button type="button" id="app-cal-prev" aria-label="Previous month">←</button>
+                  <button type="button" id="app-cal-next" aria-label="Next month">→</button>
+                </div>
+              </div>
+              <div class="calendar-body">
+                <div class="weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+                <div class="dates" id="app-cal-dates" aria-live="polite"></div>
+              </div>
+              <div class="calendar-legend">
+                <span><i class="dot-purple"></i> Scheduled session</span>
+                <span><i class="dot-orange"></i> Exchange proposal</span>
+              </div>
+            </div>
+
+            <!-- Upcoming Session Card & List -->
+            <article class="upcoming-card tilt-card" id="upcoming-session-card">
+              <div class="upcoming-top">
+                <span class="session-badge">Active Sessions Hub</span>
+                <button type="button" id="upcoming-add-btn" class="button button-mini" style="font-size: 11px; padding: 3px 8px;">+ New</button>
+              </div>
+
+              <div id="scheduled-sessions-container">
+                <!-- Dynamically populated from SQLite DB /api/sessions -->
+              </div>
+
+              <!-- Interactive Google Meet Link Option -->
+              <div class="session-meet-card" id="session-meet-card">
+                <div class="meet-card-header">
+                  <div class="meet-brand-badge">
+                    <svg class="meet-logo-svg" viewBox="0 0 24 24" width="18" height="18" fill="none">
+                      <rect x="2" y="5" width="14" height="14" rx="3" fill="#00832D"/>
+                      <path d="M16 10L21 6.5V17.5L16 14V10Z" fill="#0066DA"/>
+                      <rect x="2" y="5" width="14" height="14" rx="3" fill="#00AC47"/>
+                      <path d="M7 9H11M7 12H11M7 15H9" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <strong>Google Meet Room</strong>
+                  </div>
+                  <span class="meet-status-indicator"><i class="live-pulse-dot"></i> Live Room Ready</span>
+                </div>
+                <div class="meet-link-row">
+                  <div class="meet-link-bubble" title="Google Meet Room Link">
+                    <span class="meet-icon-link">🔗</span>
+                    <a href="https://meet.google.com/qmv-ytpk-zbw" target="_blank" rel="noopener noreferrer" id="active-meet-url" class="active-meet-url">meet.google.com/qmv-ytpk-zbw</a>
+                  </div>
+                  <div class="meet-actions-group">
+                    <button type="button" class="meet-btn-copy" id="copy-meet-link-btn" title="Copy Google Meet link">
+                      📋 Copy
+                    </button>
+                    <button type="button" class="meet-btn-share" id="open-meet-modal-btn" title="Provide or generate link">
+                      ⚡ Share / Gen
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-actions">
+                <button class="button button-mini meet-primary-join-btn" type="button" id="join-session" title="Directly launch Google Meet">
+                  📹 Launch Google Meet <span>→</span>
+                </button>
+                <button class="outline-button" type="button" id="open-chat">Open Live Messenger</button>
+              </div>
+            </article>
+
+            <!-- Messenger Chat Card -->
+            <article class="chat-card tilt-card" id="chat-card">
+              <div class="chat-conversations-bar" id="chat-conversations-bar">
+                <!-- Dynamically populated conversation tabs -->
+              </div>
+
+              <div class="chat-head">
+                <div>
+                  <span class="mini-portrait">
+                    <img id="chat-partner-avatar" src="miraz.jpg" alt="Partner avatar" />
+                  </span>
+                  <div>
+                    <h3 id="chat-partner-name">Skill Partner</h3>
+                    <p id="chat-partner-status"><i></i> Ready to learn together</p>
+                  </div>
+                </div>
+                <button type="button" id="chat-rate-partner-btn" class="button button-mini" style="font-size: 11px; padding: 4px 8px;" title="Rate this partner">★ Rate</button>
+              </div>
+              <div class="chat-messages" id="chat-messages">
+                <p class="chat-date">Real-Time Secure Messenger</p>
+                <div class="message incoming">Welcome to SkillSwap Messenger! Send a message below to coordinate your exchange.</div>
+              </div>
+              <form class="chat-compose" id="chat-form">
+                <label class="sr-only" for="chat-input">Write a message</label>
+                <input id="chat-input" placeholder="Write a message to your partner..." autocomplete="off" />
+                <button type="submit" aria-label="Send message">↑</button>
+              </form>
+            </article>
+          </div>
+        </section>
+
+        <!-- Community Wall & Discussions Section -->
+        <section class="community-feed-section section-shell" id="feed">
+          <div class="feed-header-wrap reveal">
+            <div>
+              <p class="eyebrow"><span></span> Community Knowledge Wall</p>
+              <h2>Discussions, Tips & <em>Showcases</em></h2>
+              <p style="margin: 6px 0 0; color: var(--muted); font-size: 14px;">Share practical insights, ask for project feedback, or discover creative collaborations.</p>
+            </div>
+            <div class="feed-controls">
+              <button type="button" class="feed-filter-btn active" data-feed-cat="all">All Topics</button>
+              <button type="button" class="feed-filter-btn" data-feed-cat="Design">Design</button>
+              <button type="button" class="feed-filter-btn" data-feed-cat="Tech">Technology</button>
+              <button type="button" class="feed-filter-btn" data-feed-cat="Career">Career</button>
+              <button type="button" class="feed-create-btn" id="open-create-post-btn">
+                ✍️ Post to Community
+              </button>
+            </div>
+          </div>
+
+          <div class="feed-grid" id="community-feed-grid">
+            <!-- Dynamically populated from SQLite DB /api/community/posts -->
+          </div>
+        </section>
+
+        <!-- Community Reviews & Testimonials Section -->
+        <section class="community-section section-shell" id="community">
+          <div class="community-card tilt-card reveal">
+            <div class="community-copy">
+              <p class="eyebrow"><span></span> Built on trust</p>
+              <h2>Every great learner has something worth <em>sharing.</em></h2>
+              <p>Verified learning histories, thoughtful reviews, and reciprocal ratings make SkillSwap a generous and inspiring home for growth.</p>
+              <div style="margin-top: 18px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                <a class="explore-link" href="#discover">Browse community <span>→</span></a>
+                <button type="button" class="button button-mini" id="open-rating-modal-btn">★ Leave a Verified Review</button>
+              </div>
+            </div>
+            
+            <div class="review-stack" id="review-stack-container">
+              <!-- Dynamically populated from SQLite DB /api/reviews -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <section class="final-cta section-shell">
+          <p class="eyebrow"><span></span> Ready to begin?</p>
+          <h2>What will you <em>share</em> next?</h2>
+          <p>Join a vibrant global community where your skills empower someone else to reach their goals.</p>
+          <button class="button button-emerald open-request" data-person="a new skill partner" type="button">
+            Propose a new swap <span aria-hidden="true">→</span>
+          </button>
+        </section>
+      </main>
+
+      <!-- Site Footer -->
+      <footer class="site-footer section-shell">
+        <a class="brand" href="#home" aria-label="SkillSwap home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="38" height="38">
+              <ellipse cx="15" cy="22" rx="12" ry="10" fill="#3B66FF" opacity="0.9"/>
+              <ellipse cx="33" cy="22" rx="12" ry="10" fill="#10B981" opacity="0.9"/>
+              <ellipse cx="24" cy="22" rx="6" ry="10" fill="url(#logoGradX1)" opacity="0.95"/>
+              <path d="M24 15 L21 21 L24 19 L27 21 Z" fill="white" opacity="0.95"/>
+              <path d="M24 29 L21 23 L24 25 L27 23 Z" fill="white" opacity="0.95"/>
+              <defs>
+                <linearGradient id="logoGradX1" x1="18" y1="12" x2="30" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B66FF"/>
+                  <stop offset="1" stop-color="#10B981"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span>Skill<span>Swap</span></span>
+        </a>
+        <p>Small swaps. Big possibilities.</p>
+        <div>
+          <a href="#home">Home</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#discover">Explore</a>
+          <a href="#sessions">Sessions</a>
+          <a href="#feed">Discussions</a>
+          <a href="#community">Community</a>
+        </div>
+        <small>© 2026 SkillSwap Inc. Built for lifelong learners.</small>
+      </footer>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 3. INTERACTIVE MODALS                                     -->
+    <!-- ========================================================= -->
+
+    <!-- Exchange Proposal Modal -->
+    <div class="modal-backdrop" id="request-modal" aria-hidden="true">
+      <section class="request-modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="request-modal-close" type="button" aria-label="Close modal">✕</button>
+        <span class="eyebrow">Start an exchange</span>
+        <h2>Connect with <span id="request-person">your skill partner</span></h2>
+        <p>Propose what skill you want to learn and describe what you can teach in return.</p>
+        <form id="request-form">
+          <input type="hidden" id="request-receiver-id" name="receiver_id" value="" />
+          <label>
+            Skill I want to learn:
+            <input required id="request-input-learn" name="learn" placeholder="e.g. Brand strategy, Motion design" />
+          </label>
+          <label>
+            Skill I can share in return:
+            <input required id="request-input-teach" name="teach" placeholder="e.g. Python, UX writing, React" />
+          </label>
+          <label>
+            Personal introduction:
+            <textarea id="request-input-msg" name="message" rows="3" placeholder="Hi! I'd love to connect for a weekly exchange..."></textarea>
+          </label>
+          <button class="button button-primary" type="submit">
+            Send exchange proposal <span aria-hidden="true">→</span>
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <!-- Rating & Review Submission Modal -->
+    <div class="modal-backdrop" id="rating-modal" aria-hidden="true">
+      <section class="request-modal rating-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="rating-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="meet-modal-badge" style="background: rgba(245, 158, 11, 0.12); color: #d97706;">
+          <span>⭐</span>
+          <span class="eyebrow">Rate Your Exchange Partner</span>
+        </div>
+        <h2>Leave a Verified Rating</h2>
+        <p>Your honest feedback helps the SkillSwap community grow with confidence and trust.</p>
+        
+        <form id="rating-form">
+          <label for="rating-partner-select">
+            Skill Partner:
+            <select id="rating-partner-select" required>
+              <option value="" disabled selected>Select partner to review...</option>
+            </select>
+          </label>
+
+          <label>
+            Your Rating:
+            <div class="rating-stars-input" id="rating-stars-picker">
+              <button type="button" class="star-btn active" data-rating="1">★</button>
+              <button type="button" class="star-btn active" data-rating="2">★</button>
+              <button type="button" class="star-btn active" data-rating="3">★</button>
+              <button type="button" class="star-btn active" data-rating="4">★</button>
+              <button type="button" class="star-btn active" data-rating="5">★</button>
+            </div>
+            <input type="hidden" id="input-rating-val" value="5" />
+          </label>
+
+          <label for="input-review-text">
+            Your Review:
+            <textarea id="input-review-text" required rows="3" placeholder="Describe how the exchange went and what skills you learned together..."></textarea>
+          </label>
+
+          <div class="meet-dialog-actions">
+            <button class="button button-primary" type="submit">
+              Submit Review to Community <span>★</span>
+            </button>
+            <button class="outline-button" id="rating-modal-cancel" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Schedule New Session Modal -->
+    <div class="modal-backdrop" id="schedule-session-modal" aria-hidden="true">
+      <section class="request-modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="schedule-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="meet-modal-badge" style="background: rgba(16, 185, 129, 0.12); color: #059669;">
+          <span>📅</span>
+          <span class="eyebrow">Schedule Learning Session</span>
+        </div>
+        <h2>Set Up a 1-on-1 Exchange</h2>
+        <p>Pick your peer partner, scheduled time, and Google Meet room to learn together.</p>
+
+        <form id="schedule-session-form">
+          <label for="schedule-participant-select">
+            Select Partner:
+            <select id="schedule-participant-select" required>
+              <option value="" disabled selected>Choose a partner...</option>
+            </select>
+          </label>
+
+          <label for="schedule-title">
+            Session Title / Topic:
+            <input type="text" id="schedule-title" required placeholder="e.g. Figma Tokens & React Integration Session" />
+          </label>
+
+          <label for="schedule-time">
+            Date & Time:
+            <input type="text" id="schedule-time" required placeholder="e.g. Friday, Sep 25 · 6:30 PM (BST)" value="This Friday · 6:30 PM (BST)" />
+          </label>
+
+          <label for="schedule-meet-url">
+            Google Meet URL:
+            <input type="url" id="schedule-meet-url" required value="https://meet.google.com/qmv-ytpk-zbw" />
+          </label>
+
+          <label for="schedule-notes">
+            Session Goals & Agenda (Optional):
+            <textarea id="schedule-notes" rows="2" placeholder="Topics to cover, practice files, or preparation instructions..."></textarea>
+          </label>
+
+          <div class="meet-dialog-actions">
+            <button class="button button-primary" type="submit">
+              Confirm & Schedule Session <span>📅</span>
+            </button>
+            <button class="outline-button" id="schedule-modal-cancel" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Google Meet Provider Modal -->
+    <div class="modal-backdrop" id="meet-link-modal" aria-hidden="true">
+      <section class="request-modal meet-share-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="meet-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="meet-modal-badge">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
+            <rect x="2" y="5" width="14" height="14" rx="3" fill="#00832D"/>
+            <path d="M16 10L21 6.5V17.5L16 14V10Z" fill="#0066DA"/>
+            <rect x="2" y="5" width="14" height="14" rx="3" fill="#00AC47"/>
+            <path d="M7 9H11M7 12H11M7 15H9" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="eyebrow">Google Meet Integration</span>
+        </div>
+        <h2>Share Google Meet Session Link</h2>
+        <p>Provide or update the Google Meet room link. All participants can click and join directly.</p>
+        
+        <form id="meet-share-form" class="meet-share-form">
+          <label for="input-meet-url">
+            Google Meet Link URL:
+            <div class="meet-input-row">
+              <input type="url" id="input-meet-url" required placeholder="https://meet.google.com/xxx-yyyy-zzz" value="https://meet.google.com/qmv-ytpk-zbw" />
+              <button type="button" class="meet-quick-gen-btn" id="generate-meet-btn" title="Generate fresh Google Meet link">⚡ Generate</button>
+            </div>
+          </label>
+          <div class="meet-dialog-actions">
+            <button class="button button-primary" type="submit">
+              Save & Share Link <span>→</span>
+            </button>
+            <button class="outline-button" id="meet-modal-cancel" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Google Account Sign-In Modal -->
+    <div class="modal-backdrop" id="google-login-modal" aria-hidden="true">
+      <div class="google-login-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="google-modal-close" type="button" aria-label="Close">✕</button>
+        <div class="google-dialog-header">
+          <svg viewBox="0 0 24 24" width="38" height="38">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z" />
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z" />
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z" />
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z" />
+          </svg>
+          <h3>Sign in with Google</h3>
+          <p>to continue to <strong>SkillSwap</strong></p>
+        </div>
+        <div class="google-accounts-list">
+          <button type="button" class="google-account-item" id="google-acc-alex">
+            <span class="google-avatar-wrap">
+              <img src="saif.jpg" alt="Alex Chen" />
+            </span>
+            <div class="google-acc-info">
+              <strong>Alex Chen</strong>
+              <span>alex.chen@gmail.com</span>
+            </div>
+            <span class="google-acc-arrow">→</span>
+          </button>
+          
+          <div class="google-custom-account">
+            <label for="google-custom-email">Or use another Google account:</label>
+            <div class="google-custom-input-row">
+              <input type="email" id="google-custom-email" placeholder="your.name@gmail.com" />
+              <button type="button" id="google-custom-submit-btn" class="google-custom-btn">Sign in</button>
+            </div>
+          </div>
+        </div>
+        <div class="google-dialog-footer">
+          <p>Google will securely verify your account with SkillSwap.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Community Post Modal -->
+    <div class="modal-backdrop" id="create-post-modal" aria-hidden="true">
+      <section class="request-modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="post-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="meet-modal-badge" style="background: rgba(59, 102, 255, 0.12); color: var(--royal-blue);">
+          <span>✍️</span>
+          <span class="eyebrow">Community Knowledge Wall</span>
+        </div>
+        <h2>Share Insights & Start a Discussion</h2>
+        <p>Post tips, share project accomplishments, or ask questions to fellow skill swappers.</p>
+
+        <form id="create-post-form">
+          <label for="post-category">
+            Category:
+            <select id="post-category" required>
+              <option value="General">General Discussion</option>
+              <option value="Design">Design & UI/UX</option>
+              <option value="Tech">Technology & Code</option>
+              <option value="Career">Career & Freelancing</option>
+              <option value="Showcase">Project Showcase</option>
+            </select>
+          </label>
+
+          <label for="post-title">
+            Post Title:
+            <input type="text" id="post-title" required placeholder="e.g. 5 Lessons Learned from My First 10 Peer Swaps" />
+          </label>
+
+          <label for="post-content">
+            Content:
+            <textarea id="post-content" required rows="4" placeholder="Share your experience, advice, or ideas in detail..."></textarea>
+          </label>
+
+          <label for="post-tags">
+            Tags (comma separated):
+            <input type="text" id="post-tags" placeholder="e.g. React, UX, Freelancing" />
+          </label>
+
+          <div class="meet-dialog-actions">
+            <button class="button button-primary" type="submit">
+              Publish Post <span>🚀</span>
+            </button>
+            <button class="outline-button" id="post-modal-cancel" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Peer Profile Detail Modal -->
+    <div class="modal-backdrop" id="peer-profile-modal" aria-hidden="true">
+      <section class="request-modal peer-modal-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="peer-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="peer-modal-head">
+          <img class="peer-modal-avatar" id="peer-modal-avatar" src="mim.jpg" alt="Peer avatar" />
+          <div class="peer-modal-meta">
+            <h3 id="peer-modal-name">Sadia Ahmed Mim <span class="verified">✓</span></h3>
+            <div class="peer-modal-role" id="peer-modal-role">Lead UI/UX Designer</div>
+            <div class="peer-modal-rating-badge" id="peer-modal-rating">5.0 ★ (3 reviews)</div>
+          </div>
+        </div>
+
+        <p class="peer-modal-bio" id="peer-modal-bio">Experienced designer eager to learn modern web development.</p>
+
+        <div class="peer-modal-section-title">Skills Offered (Can Teach):</div>
+        <div class="peer-modal-chips" id="peer-modal-teach-chips"></div>
+
+        <div class="peer-modal-section-title">Wants to Learn:</div>
+        <div class="peer-modal-chips" id="peer-modal-learn-chips"></div>
+
+        <div class="peer-modal-section-title">Verified Reviews from Peers:</div>
+        <div class="peer-reviews-list" id="peer-modal-reviews-list">
+          <div style="font-size: 11px; color: var(--muted);">Loading verified reviews...</div>
+        </div>
+
+        <div class="meet-dialog-actions">
+          <button class="button button-primary" id="peer-modal-connect-btn" type="button">
+            Send Exchange Proposal <span>→</span>
+          </button>
+          <button class="outline-button" id="peer-modal-fav-btn" type="button">
+            ⭐ Save to Favorites
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Profile & Learning Goals Editor Modal -->
+    <div class="modal-backdrop" id="learning-goals-modal" aria-hidden="true">
+      <section class="request-modal learning-goals-dialog" role="dialog" aria-modal="true">
+        <button class="modal-close" id="goals-modal-close" type="button" aria-label="Close modal">✕</button>
+        <div class="meet-modal-badge" style="background: rgba(37, 99, 235, 0.1); color: var(--royal-blue);">
+          <span>🎯</span>
+          <span class="eyebrow">SkillSwap Match Profile</span>
+        </div>
+        <h2>Edit Profile & Learning Targets</h2>
+        <p>Update your public profile, skills you teach, and what you are looking to learn from fellow peers.</p>
+        
+        <form id="learning-goals-form" class="goals-form">
+            <label style="display:flex; flex-direction:column; gap:10px; align-items:flex-start;">
+              <span>Profile Picture:</span>
+              <div style="display:flex; align-items:center; gap: 15px;">
+                <img id="avatar-preview-img" src="default-avatar.svg" alt="Preview" style="width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line);" />
+                <input type="file" id="input-avatar-file" accept="image/*" style="font-size: 13px;" />
+              </div>
+              <input type="hidden" id="input-user-avatar" value="" />
+            </label>
+  
+            <label for="input-user-fullname">
+              Full Name:
+              <input type="text" id="input-user-fullname" required placeholder="e.g. Alex Chen" />
+            </label>
+  
+            <label for="input-user-role">
+              Professional Title:
+              <input type="text" id="input-user-role" placeholder="e.g. Full-Stack Developer" />
+            </label>
+
+            <label for="input-user-bio">
+              Short Bio:
+              <textarea id="input-user-bio" rows="2" placeholder="Tell peers about your background..."></textarea>
+            </label>
+  
+            <button class="button button-primary" type="submit" style="margin-top: 10px;">Save Profile Updates</button>
+          </form>
+      </section>
+    </div>
+
+    <!-- Toast Notification Banner -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <span>✓</span>
+      <p id="toast-message">Your request is ready.</p>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
